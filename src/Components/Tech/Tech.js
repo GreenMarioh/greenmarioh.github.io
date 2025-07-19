@@ -57,7 +57,7 @@ const Tech = () => {
             {/* Tech Projects */}
             <div className="subsection">
                 <h3>Projects</h3>
-                <p className="project-description">Made a bunch of stuff, come check them out.</p>
+                <p className="subsection-description">Made a bunch of stuff, come check them out.</p>
                 <div className="projects-grid">
                     {projects.map((proj, index) => (
                         // 1. onClick handler is now on the entire card
@@ -105,7 +105,7 @@ const Tech = () => {
 
             <div className="subsection">
                 <h3>Coding Profiles</h3>
-                <p className="project-description">Trying to set my foot in problem solving and competitive programming.</p>
+                <p className="subsection-description">Trying to set my foot in problem solving and competitive programming.</p>
                 <div className="profiles-grid">
                      {profiles.map(profile => (
                          <a key={profile.name} href={profile.url} target="_blank" rel="noopener noreferrer" className="profile-button">

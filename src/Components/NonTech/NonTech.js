@@ -8,10 +8,10 @@ import { SiAdobephotoshop, SiAdobepremierepro, SiAdobeaftereffects, SiAdobelight
 // Example: public/assets/logos/riot.png
 const communityLogos = {
     riot: '/assets/logos/riot.png',
-    glorious: '/assets/logos/glorious.png',
-    ssg: '/assets/logos/ssg.png',
+    glorious: '/assets/logos/glorious.svg',
+    ssg: '/assets/logos/SSG.png',
     gfg: '/assets/logos/gfg.png',
-    cybervault: '/assets/logos/cybervault.png',
+    cybervault: '/assets/logos/cybervault.jpeg',
 };
 
 // --- EDITABLE DATA ---
@@ -23,15 +23,16 @@ const creativeSkills = [
 ];
 
 const communityData = [
+  
+  {
+    name: "Glorious",
+    logo: communityLogos.glorious,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Moderated forums and provided user support."
+  },
   {
     name: "Riot Games (VALORANT)",
     logo: communityLogos.riot,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Managed community events and feedback for VALORANT."
-  },
-  {
-    name: "Glorious PCMR",
-    logo: communityLogos.glorious,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Moderated forums and provided user support."
   },
   {
     name: "SpaceStation Gaming",
@@ -120,5 +121,5 @@ const NonTech = () => {
   );
 };
 
-// This line MUST export the function, not a data array.
+
 export default NonTech;

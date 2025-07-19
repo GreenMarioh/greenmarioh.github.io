@@ -15,7 +15,7 @@ const Introduction = () => {
     return (
         <>
             <section id="intro" className="intro-container">
-                <h1>Mohnish Kumar</h1>
+                <h1>Hi, I'm Mohnish Kumar</h1>
                 <p>Passionate about all things tech.</p>
                 
                 <div className="intro-buttons-container">
