@@ -1,0 +1,26 @@
+.banner {
+  background-color: rgba(13, 13, 13, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--secondary-gray);
+}
+
+.banner nav a {
+  margin: 0 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.banner nav a:hover {
+  color: var(--primary-green);
+}

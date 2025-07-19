@@ -1,0 +1,22 @@
+.intro-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 10%;
+}
+
+.intro-container h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.intro-container p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,72 @@
+.non-tech-container {
+  padding: 80px 5%;
+}
+
+.non-tech-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+/* Creative Skills */
+.creative-skills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.creative-skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+.creative-skill-item svg {
+    font-size: 3rem;
+    color: var(--primary-green);
+}
+
+/* Community & Clubs Grid */
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.community-card {
+    background-color: var(--secondary-gray);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.community-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 127, 0.1);
+}
+.community-logo {
+    height: 80px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+.community-card h4 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Modal Content */
+.community-modal-content {
+    text-align: center;
+}
+.modal-logo {
+    height: 100px;
+    margin-bottom: 20px;
+}
+.community-modal-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}

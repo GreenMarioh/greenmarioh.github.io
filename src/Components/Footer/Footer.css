@@ -1,0 +1,26 @@
+.footer {
+  text-align: center;
+  padding: 40px 5%;
+  background-color: var(--primary-black);
+  border-top: 1px solid var(--secondary-gray);
+}
+
+.social-links {
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  font-size: 2rem;
+  margin: 0 15px;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-green);
+}
+
+.footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
