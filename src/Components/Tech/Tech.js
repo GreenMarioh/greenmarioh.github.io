@@ -13,17 +13,17 @@ import { DiLinux } from "react-icons/di";
 // --- EDITABLE DATA ---
 const projects = [
   {
-    name: "Project One",
-    description: "A short and crisp description of Project One, highlighting its main features and the technology used.",
-    images: ["/assets/projects/p1_ss1.png", "/assets/projects/p1_gif1.gif"],
-    liveUrl: "https://live-demo.com",
-    githubUrl: "https://github.com/your-username/project-one"
+    name: "Shortest/Unique Paths Visualizer",
+    description: "A dynamic grid-based visualizer that animates pathfinding with obstacles, using both DP and 8-directional shortest path search. Built with React + TypeScript. ",
+    images: ["https://greenmario.hep.gg/J4a1_isiE.gif", "https://greenmario.hep.gg/9-YNqoHf_.png"],
+    liveUrl: "https://greenmarioh.github.io/unique-paths-visualizer/",
+    githubUrl: "https://github.com/GreenMarioh/unique-paths-visualizer"
   },
   {
-    name: "Project Two",
-    description: "This is the description for Project Two. It solves a real-world problem using modern web development tools.",
-    images: ["/assets/projects/p2_ss1.png"],
-    githubUrl: "https://github.com/your-username/project-two"
+    name: "Whipper - Custom Discord Bot",
+    description: "Whipper is a versatile Discord bot designed to enhance your gaming community's experience with a suite of useful and fun features. Used for checking game server statuses, looking up player stats, or just having fun with randomizers.",
+    images: ["https://greenmario.hep.gg/PZk_SCagG.png", "https://greenmario.hep.gg/ai5KBGL2Q.png","https://greenmario.hep.gg/-IHqoSY_k.png"],
+    githubUrl: "https://github.com/GreenMarioh/Whipper"
   },
 ];
 
@@ -32,7 +32,7 @@ const skills = { // ... (Skills data remains the same)
 };
 
 const profiles = [ // ... (Profiles data remains the same)
-    { name: "LeetCode", url: "#", icon: <SiLeetcode />, desc: "300+ problems solved" }, { name: "CodeForces", url: "#", icon: <SiCodeforces />, desc: "Pupil Rating" }, { name: "CodeChef", url: "#", icon: <SiCodechef />, desc: "4 Star Coder" }, { name: "GeeksForGeeks", url: "#", icon: <SiGeeksforgeeks />, desc: "Institute Rank 1" }, { name: "TryHackMe", url: "#", icon: <FaUserSecret />, desc: "Top 1% Global" },
+    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "300+ problems solved" }, { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "" }, { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "" }, { name: "GeeksForGeeks", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks />, desc: "" }, { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
 ];
 
 // --- COMPONENT LOGIC ---
@@ -77,7 +77,7 @@ const Tech = () => {
                             </div>
                         </div>
                     ))}
-                     <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" className="project-card coming-soon">
+                     <a href="https://github.com/GreenMarioh" target="_blank" rel="noopener noreferrer" className="project-card coming-soon">
                         <div><FaPlus /><h4>Coming Soon</h4></div>
                     </a>
                 </div>

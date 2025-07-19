@@ -47,6 +47,8 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   /* Apply the scale-up animation to the modal box */
   animation: scaleUp 0.4s ease-out;
+   max-height: 85vh; /* Set a max height (e.g., 85% of the viewport height) */
+  overflow-y: auto;
 }
 
 .modal-close-button {

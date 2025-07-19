@@ -10,15 +10,14 @@ const Introduction = () => {
     const closeModal = () => setIsModalOpen(false);
     
     // CV link from the old component is now here
-    const cvUrl = `https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID_HERE`;
+    const cvUrl = `https://drive.google.com/file/d/1p2OIaUxBBGs_Cy4Hv1I0DndbQDdnD_Ui/view`;
 
     return (
         <>
             <section id="intro" className="intro-container">
                 <h1>Mohnish Kumar</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Passionate about all things tech.</p>
                 
-                {/* New container to hold both buttons */}
                 <div className="intro-buttons-container">
                     <button className="know-more-button" onClick={openModal}>
                        About Me
