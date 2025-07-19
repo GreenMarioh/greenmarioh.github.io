@@ -1,24 +1,52 @@
+/* src/components/Modal/Modal.css */
+
+/* Define the animations using keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8); /* Made it slightly darker */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  /* Apply the fade-in animation to the overlay */
+  animation: fadeIn 0.3s ease-out;
 }
 
 .modal-content {
   background-color: var(--secondary-gray);
-  padding: 30px;
+  padding: 30px 40px;
   border-radius: 8px;
   position: relative;
-  width: 80%;
+  width: 90%;
   max-width: 800px;
   border: 1px solid var(--primary-green);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* Apply the scale-up animation to the modal box */
+  animation: scaleUp 0.4s ease-out;
 }
 
 .modal-close-button {
@@ -27,7 +55,13 @@
   right: 15px;
   background: none;
   border: none;
-  color: var(--text-primary);
-  font-size: 2rem;
+  color: var(--text-secondary);
+  font-size: 2.2rem;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-close-button:hover {
+    color: var(--primary-green);
+    transform: rotate(90deg);
 }

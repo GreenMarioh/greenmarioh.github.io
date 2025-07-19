@@ -20,3 +20,64 @@
   line-height: 1.6;
   color: var(--text-secondary);
 }
+
+/* Replace your old button styles with this block */
+
+.intro-buttons-container {
+  display: flex;
+  flex-direction: row;   /* Aligns buttons side-by-side */
+  justify-content: center;
+  align-items: center;
+  gap: 25px;             /* This creates the gap between the buttons */
+  margin-top: 40px;      /* This creates the space above the button group */
+}
+
+/* Primary Button Style (Outline) */
+.know-more-button {
+  background-color: transparent;
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+/* Secondary Button Style (also Outline) */
+.download-cv-button {
+  background-color: transparent;
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 25px; /* Slightly different padding to account for icon */
+  font-size: 1.1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+/* --- Hover Effects --- */
+
+.know-more-button:hover{
+   
+  
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+
+
+}
+.download-cv-button:hover {
+  background-color: var(--primary-green);
+  color: var(--primary-black);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+}

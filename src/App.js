@@ -5,6 +5,7 @@ import Introduction from './Components/Introduction/Introduction';
 import CVDownload from './Components/CVDownload/CVDownload';
 import Tech from './Components/Tech/Tech';
 import NonTech from './Components/NonTech/NonTech';
+import Connect from './Components/Connect/Connect';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 
@@ -14,9 +15,10 @@ function App() {
       <Banner />
       <main>
         <Introduction />
-        <CVDownload /> 
+         
         <Tech />
         <NonTech />
+        <Connect /> 
         <Contact />
       </main>
       <Footer />

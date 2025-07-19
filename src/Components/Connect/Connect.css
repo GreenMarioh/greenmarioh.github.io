@@ -1,0 +1,78 @@
+/* src/components/Connect/Connect.css */
+
+.connect-container {
+    padding: 80px 5%;
+    background-color: var(--primary-black); /* Matches the main background */
+}
+
+.connect-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-green);
+}
+
+.connect-description {
+    text-align: center;
+    max-width: 650px; /* Limits the width for better readability */
+    margin: 0 auto 50px auto; /* Centers the description block */
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.connect-grid {
+    display: grid;
+    /* Creates a responsive grid that wraps automatically */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px; /* Optional: sets a max width for the grid on very large screens */
+    margin: 0 auto; /* Centers the grid itself */
+}
+
+.connect-card {
+    background-color: var(--secondary-gray);
+    border-radius: 8px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--secondary-gray);
+}
+
+.connect-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-green);
+}
+
+/* Make cards that are not links feel clickable */
+.connect-card:not(a) {
+    cursor: pointer;
+}
+
+.connect-card svg {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+
+.connect-card-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+    overflow: hidden; /* Prevents long text from breaking layout */
+}
+
+.connect-card-text strong {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.connect-card-text span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds '...' if text is too long */
+}
