@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import './Tech.css';
-import Modal from '../Modal/Modal'; // <-- Re-importing the Modal
+import Modal from '../Modal/Modal';
 // --- Import Icons ---
 import { FaJava, FaGithub, FaExternalLinkAlt, FaPlus, FaUserSecret } from 'react-icons/fa';
 import { SiCplusplus, SiJavascript, SiDart, SiHtml5, SiCss3, SiReact, SiNodedotjs, SiMysql, SiPostgresql, SiKalilinux, SiLatex, SiGit, SiLeetcode, SiCodeforces, SiCodechef, SiGeeksforgeeks } from "react-icons/si";
@@ -15,14 +15,14 @@ const projects = [
   {
     name: "Project One",
     description: "A short and crisp description of Project One, highlighting its main features and the technology used.",
-    images: ["/assets/projects/p1_ss1.png", "/assets/projects/p1_gif1.gif"], 
+    images: ["/assets/projects/p1_ss1.png", "/assets/projects/p1_gif1.gif"],
     liveUrl: "https://live-demo.com",
     githubUrl: "https://github.com/your-username/project-one"
   },
   {
     name: "Project Two",
     description: "This is the description for Project Two. It solves a real-world problem using modern web development tools.",
-    images: ["/assets/projects/p2_ss1.png"], 
+    images: ["/assets/projects/p2_ss1.png"],
     githubUrl: "https://github.com/your-username/project-two"
   },
 ];
@@ -37,7 +37,6 @@ const profiles = [ // ... (Profiles data remains the same)
 
 // --- COMPONENT LOGIC ---
 const Tech = () => {
-    // Re-introducing state for the modal
     const [modalContent, setModalContent] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -60,12 +59,21 @@ const Tech = () => {
                 <h3>Projects</h3>
                 <div className="projects-grid">
                     {projects.map((proj, index) => (
-                        <div key={index} className="project-card">
-                            <h4 onClick={() => openModal(proj)}>{proj.name}</h4>
+                        // 1. onClick handler is now on the entire card
+                        <div key={index} className="project-card" onClick={() => openModal(proj)}>
+                            {/* 2. onClick is removed from the h4 */}
+                            <h4>{proj.name}</h4>
                             <p className="project-description">{proj.description}</p>
                             <div className="project-links">
-                                {proj.liveUrl && <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer"><FaExternalLinkAlt /> Live</a>}
-                                <a href={proj.githubUrl} target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a>
+                                {/* 3. Add onClick to links to stop them from triggering the card's onClick */}
+                                {proj.liveUrl && (
+                                    <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                                        <FaExternalLinkAlt /> Live
+                                    </a>
+                                )}
+                                <a href={proj.githubUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                                    <FaGithub /> GitHub
+                                </a>
                             </div>
                         </div>
                     ))}
@@ -75,7 +83,7 @@ const Tech = () => {
                 </div>
             </div>
 
-            {/* Tech Skills subsection ... */}
+            {/* Other subsections remain unchanged... */}
             <div className="subsection">
                 <h3>Skills</h3>
                 <div className="skills-layout">
@@ -94,7 +102,6 @@ const Tech = () => {
                 </div>
             </div>
 
-            {/* Profiles subsection ... */}
             <div className="subsection">
                 <h3>Coding Profiles</h3>
                 <div className="profiles-grid">
@@ -107,7 +114,6 @@ const Tech = () => {
                  </div>
             </div>
             
-            {/* Re-introducing the Modal component with updated content */}
             <Modal show={isModalOpen} onClose={closeModal}>
                 {modalContent && (
                     <div className="project-modal-content">

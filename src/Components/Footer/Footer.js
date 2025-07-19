@@ -19,7 +19,8 @@ const Footer = () => {
             </a>
         ))}
       </div>
-      <p>&copy; {new Date().getFullYear()} Mohnish Kumar. All Rights Reserved.</p>
+      <p>This website may or may not have been vibe coded ;)</p>
+      <p>With &lt;3, by Mohnish.</p>
     </footer>
   );
 };
