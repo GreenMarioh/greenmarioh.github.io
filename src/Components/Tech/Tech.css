@@ -113,6 +113,8 @@
 /* Profiles Grid */
 .profiles-grid {
     display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;  
     flex-wrap: wrap;
     gap: 15px;
 }

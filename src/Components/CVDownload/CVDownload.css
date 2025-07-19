@@ -1,0 +1,28 @@
+.cv-download-section {
+  text-align: center;
+  padding: 40px 0;
+  background-color: var(--primary-black); /* Same as intro background */
+}
+
+.cv-download-button {
+  background-color: transparent;
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.cv-download-button:hover {
+  background-color: var(--primary-green);
+  color: var(--primary-black);
+  box-shadow: 0 0 15px rgba(0, 255, 127, 0.4);
+  transform: translateY(-3px);
+}
