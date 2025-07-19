@@ -14,7 +14,7 @@ import { DiLinux } from "react-icons/di";
 const projects = [
   {
     name: "Shortest/Unique Paths Visualizer",
-    description: "A dynamic grid-based visualizer that animates pathfinding with obstacles, using both DP and 8-directional shortest path search. Built with React + TypeScript. ",
+    description: "A dynamic grid-based visualizer that animates pathfinding with obstacles, using both DP and 8-directional shortest path search (Dijkstra's Algorithm).",
     images: ["https://greenmario.hep.gg/J4a1_isiE.gif", "https://greenmario.hep.gg/9-YNqoHf_.png"],
     liveUrl: "https://greenmarioh.github.io/unique-paths-visualizer/",
     githubUrl: "https://github.com/GreenMarioh/unique-paths-visualizer"
@@ -57,6 +57,7 @@ const Tech = () => {
             {/* Tech Projects */}
             <div className="subsection">
                 <h3>Projects</h3>
+                <p className="project-description">Made a bunch of stuff, come check them out.</p>
                 <div className="projects-grid">
                     {projects.map((proj, index) => (
                         // 1. onClick handler is now on the entire card
@@ -104,6 +105,7 @@ const Tech = () => {
 
             <div className="subsection">
                 <h3>Coding Profiles</h3>
+                <p className="project-description">Trying to set my foot in problem solving and competitive programming.</p>
                 <div className="profiles-grid">
                      {profiles.map(profile => (
                          <a key={profile.name} href={profile.url} target="_blank" rel="noopener noreferrer" className="profile-button">

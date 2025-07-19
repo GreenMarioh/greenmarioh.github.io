@@ -85,6 +85,7 @@ const NonTech = () => {
 
       <div className="subsection">
           <h3>Creative Suite</h3>
+          <p className="description"></p>
           <div className="creative-skills">
               {creativeSkills.map(skill => (
                   <div key={skill.name} className="creative-skill-item">
@@ -97,6 +98,7 @@ const NonTech = () => {
 
       <div className="subsection">
         <h3>Community Management</h3>
+        <p className="description">Volunteered for managing various online communities.</p>
         {renderGrid(communityData)}
       </div>
 

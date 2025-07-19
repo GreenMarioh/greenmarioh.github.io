@@ -27,6 +27,14 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
 }
+.project-description {
+  color: var(--text-secondary);  /* A light gray for easy reading */
+  font-size: 0.95rem;            /* Standard, comfortable text size */
+  line-height: 1.6;              /* Ample space between lines */
+  margin: 0 0 20px 0;            /* Space below the paragraph */
+  flex-grow: 1;                  /* Helps push links to the bottom of the card */
+  text-align: center;
+}
 
 .project-card {
   background-color: var(--primary-black);

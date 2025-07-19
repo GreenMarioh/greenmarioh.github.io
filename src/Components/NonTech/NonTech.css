@@ -7,6 +7,14 @@
   font-size: 2.5rem;
   margin-bottom: 50px;
 }
+.description {
+  color: var(--text-secondary);  /* A light gray for easy reading */
+  font-size: 0.95rem;            /* Standard, comfortable text size */
+  line-height: 1.6;              /* Ample space between lines */
+  margin: 0 0 20px 0;            /* Space below the paragraph */
+  flex-grow: 1;                  /* Helps push links to the bottom of the card */
+  text-align: center;
+}
 
 /* Creative Skills */
 .creative-skills {
