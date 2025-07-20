@@ -34,14 +34,17 @@ const Introduction = () => {
                     <h3>About Me</h3>
                     <p>Hi, I am Mohnish. Currently in pre-final year of my Computer Science major. I like everything tech - be it using tech to solve problems, building stuff, breaking stuff and fixing broken stuff.</p>
                     <p>I'm currently trying to get a better grip on understanding Data Structures and Algorithms and how to use them in advanced problem solving; just getting started in competitive programming.</p>
-                    <p>Other than that, I'm also interested in learning cyber security tools, using things in ways they're not intended to and finding loopholes :`)
+                    <p>Other than that, I'm also interested in learning cyber security tools; using things in ways they're not intended to and finding loopholes :`)
                       <br></br>  Other Technologies that I'd like to set my foot in: Machine Learning and DataBases.
                     </p>
                     
-                    <h3>Where am I</h3>
+                    <h3>Where Am I?</h3>
                     <p>Currently doing in bachelors at Kalinga Institute of Industrial Technology, Bhubaneswar, Odisha, India</p>
                     <h3>What Else?</h3>
-                    <p></p>
+                    <p>Over the past few years, I've been involved in safeguarding online community spaces through content moderation. I've been volunteering with big names involved in the online gaming space to help them with moderation of their communites on Twitch, YouTube and Discord.</p>
+                    <h3>Not Coding?</h3>
+                    <p>Even when I'm not coding, I spend a considerable amount of time behind the screen - either gaming or watching sports (even esports!).<br></br> Sometimes I yell at missed Arsenal penalties, RCB's no ball, or even criticisng Sentinel's lineups.
+                    <br></br>I also listen to (a lot) of music. The genre doesn't matter as long as it's not heavy metal (sorry metalheads). Oh and also you're welcome to spot me at the gym if you see me.</p>
                 </div>
             </Modal>
         </>
