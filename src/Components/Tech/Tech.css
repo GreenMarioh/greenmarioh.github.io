@@ -2,6 +2,7 @@
 .tech-container {
   padding: 80px 5%;
   background-color: var(--secondary-gray);
+  text-align: center;
 }
 
 .tech-container h2 {

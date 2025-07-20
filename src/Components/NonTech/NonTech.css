@@ -1,12 +1,16 @@
 
 .non-tech-container {
   padding: 80px 5%;
+  text-align: center;
 }
 
 .non-tech-container h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 50px;
+}
+.subsection {
+  text-align: left;
 }
 .description {
   color: var(--text-secondary);  /* A light gray for easy reading */

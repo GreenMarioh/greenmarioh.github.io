@@ -3,6 +3,7 @@
 .connect-container {
     padding: 80px 5%;
     background-color: var(--primary-black); /* Matches the main background */
+    text-align: center;
 }
 
 .connect-container h2 {
@@ -75,4 +76,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; /* Adds '...' if text is too long */
+}
+.subsection {
+  text-align: left;
 }

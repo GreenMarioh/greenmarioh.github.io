@@ -19,8 +19,18 @@ body {
   color: var(--text-primary);
 }
 
-h1, h2, h3 {
+h1, h3 {
   color: var(--primary-green);
+}
+h2 {
+  display: inline-block; /* This makes the border wrap the text, not the full page width */
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  padding: 10px 30px;
+  border-radius: 10px;
+  /*text-transform: uppercase;*/
+  letter-spacing: 1.5px;
+  
 }
 
 a {
