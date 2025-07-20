@@ -117,7 +117,7 @@ const clubData = [
     description: ` <h3>Management Member</h3>
   <p><em>2023 – Present</em></p>
   <p>
-    At CyberVault, I serve as a core management team member, focusing on organizing <strong>cybersecurity workshops, CTF (Capture The Flag) competitions,</strong> 
+    At CyberVault, I serve as a management team member, focusing on organizing <strong>cybersecurity workshops, CTF (Capture The Flag) competitions,</strong> 
     and <strong>awareness sessions</strong> aimed at cultivating interest in ethical hacking and infosec.
   </p>
   <p>
