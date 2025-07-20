@@ -30,22 +30,43 @@ const Introduction = () => {
             </section>
 
             <Modal show={isModalOpen} onClose={closeModal}>
-                <div className="about-me-modal">
-                    <h3>About Me</h3>
-                    <p>Hi, I am Mohnish. Currently in pre-final year of my Computer Science major. I like everything tech - be it using tech to solve problems, building stuff, breaking stuff and fixing broken stuff.</p>
-                    <p>I'm currently trying to get a better grip on understanding Data Structures and Algorithms and how to use them in advanced problem solving; just getting started in competitive programming.</p>
-                    <p>Other than that, I'm also interested in learning cyber security tools; using things in ways they're not intended to and finding loopholes :`)
-                      <br></br>  Other Technologies that I'd like to set my foot in: Machine Learning and DataBases.
-                    </p>
-                    
-                    <h3>Where Am I?</h3>
-                    <p>Currently doing in bachelors at Kalinga Institute of Industrial Technology, Bhubaneswar, Odisha, India</p>
-                    <h3>What Else?</h3>
-                    <p>Over the past few years, I've been involved in safeguarding online community spaces through content moderation. I've been volunteering with big names involved in the online gaming space to help them with moderation of their communites on Twitch, YouTube and Discord.</p>
-                    <h3>Not Coding?</h3>
-                    <p>Even when I'm not coding, I spend a considerable amount of time behind the screen - either gaming or watching sports (even esports!).<br></br> Sometimes I yell at missed Arsenal penalties, RCB's no ball, or even criticisng Sentinel's lineups.
-                    <br></br>I also listen to (a lot) of music. The genre doesn't matter as long as it's not heavy metal (sorry metalheads). Oh and also you're welcome to spot me at the gym if you see me.</p>
-                </div>
+               <div className="about-me-modal">
+  <h3>About Me</h3>
+  <p>
+    Hi, I'm Mohnish — currently in my pre-final year, pursuing a major in Computer Science. 
+    I'm passionate about all things tech — whether it's solving problems, building cool stuff, breaking things, or fixing broken ones.
+  </p>
+  <p>
+    I'm currently working on strengthening my understanding of Data Structures and Algorithms and learning how to apply them in advanced problem-solving. 
+    I've also recently started exploring the world of competitive programming.
+  </p>
+  <p>
+    Beyond that, I'm fascinated by cybersecurity — especially finding loopholes, using tools in unconventional ways, and generally understanding how things can break. :`)
+    <br />
+    Some other areas I'm eager to explore: Machine Learning and Databases.
+  </p>
+
+  <h3>Where Am I?</h3>
+  <p>
+    I'm currently pursuing my bachelor's degree at Kalinga Institute of Industrial Technology, Bhubaneswar, Odisha, India.
+  </p>
+
+  <h3>What Else?</h3>
+  <p>
+   Over the years, I have contributed to the safety and well-being of online communities through volunteer moderation. 
+    I’ve collaborated with well-known organizations in the gaming industry, managing community spaces across Twitch, YouTube, and Discord.
+  </p>
+
+  <h3>Not Coding?</h3>
+  <p>
+    Even when I'm not coding, I spend plenty of time in front of the screen — gaming or watching sports (including esports!). 
+    You might catch me yelling at missed Arsenal penalties, an RCB no-ball, or criticizing Sentinels’ lineups.
+    <br />
+    I also listen to a lot of music — the genre doesn’t matter much as long as it’s not heavy metal (sorry, metalheads). 
+    Oh, and feel free to say hi if you ever spot me at the gym!
+  </p>
+</div>
+
             </Modal>
         </>
     );
