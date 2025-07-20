@@ -31,8 +31,17 @@ const Introduction = () => {
 
             <Modal show={isModalOpen} onClose={closeModal}>
                 <div className="about-me-modal">
-                    <h2>About Me</h2>
-                    <p>This is where you can write a more detailed paragraph about yourself. Talk about your journey into technology, your passion for cybersecurity and development, and what motivates you. You can mention key experiences or your philosophy on problem-solving and continuous learning.</p>
+                    <h3>About Me</h3>
+                    <p>Hi, I am Mohnish. Currently in pre-final year of my Computer Science major. I like everything tech - be it using tech to solve problems, building stuff, breaking stuff and fixing broken stuff.</p>
+                    <p>I'm currently trying to get a better grip on understanding Data Structures and Algorithms and how to use them in advanced problem solving; just getting started in competitive programming.</p>
+                    <p>Other than that, I'm also interested in learning cyber security tools, using things in ways they're not intended to and finding loopholes :`)
+                      <br></br>  Other Technologies that I'd like to set my foot in: Machine Learning and DataBases.
+                    </p>
+                    
+                    <h3>Where am I</h3>
+                    <p>Currently doing in bachelors at Kalinga Institute of Industrial Technology, Bhubaneswar, Odisha, India</p>
+                    <h3>What Else?</h3>
+                    <p></p>
                 </div>
             </Modal>
         </>
