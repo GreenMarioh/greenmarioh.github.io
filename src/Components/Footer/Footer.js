@@ -4,9 +4,9 @@ import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 // --- EDITABLE DATA ---
 const socials = [
-    { name: 'GitHub', url: 'https://github.com/your-username', icon: <FaGithub /> },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/your-profile', icon: <FaLinkedin /> },
-    { name: 'Instagram', url: 'https://instagram.com/your-username', icon: <FaInstagram /> },
+    { name: 'GitHub', url: 'https://github.com/GreenMarioh', icon: <FaGithub /> },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/Mohnish-K', icon: <FaLinkedin /> },
+    { name: 'Instagram', url: 'https://instagram.com/hmm.mohnish', icon: <FaInstagram /> },
 ];
 
 const Footer = () => {

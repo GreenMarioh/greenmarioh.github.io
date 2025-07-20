@@ -81,3 +81,39 @@
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
 }
+
+
+/* 1. Define the animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Apply the animation to the elements with delays */
+.intro-name,
+.intro-tagline,
+.intro-buttons-container {
+  /* This keeps the elements hidden before the animation starts */
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+}
+
+.intro-name {
+  animation-delay: 0.4s; /* Name appears first */
+}
+
+.intro-tagline {
+  animation-delay: 1.0s; /* Tagline appears second */
+}
+
+.intro-buttons-container {
+  animation-delay: 1.6s; /* Buttons appear last */
+}

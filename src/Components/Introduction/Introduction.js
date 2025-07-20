@@ -15,10 +15,10 @@ const Introduction = () => {
     return (
         <>
             <section id="intro" className="intro-container">
-                <h1>Hi, I'm Mohnish Kumar</h1>
-                <p>Passionate about all things tech.</p>
-                
-                <div className="intro-buttons-container">
+                 <h1 className="intro-name">Hi, I'm Mohnish</h1>
+                 <p className="intro-tagline">Passionate about all things tech.</p>
+    
+                 <div className="intro-buttons-container">
                     <button className="know-more-button" onClick={openModal}>
                        About Me
                     </button>
