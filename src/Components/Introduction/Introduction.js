@@ -16,7 +16,9 @@ const Introduction = () => {
         <>
             <section id="intro" className="intro-container">
                  <h1 className="intro-name">Hi, I'm Mohnish</h1>
-                 <p className="intro-tagline">Passionate about all things tech.</p>
+                 <p className="intro-tagline">Passionate about all things tech. Trying to figure out how things work;
+                    from logical structures in code to social structures in communities.
+                 </p>
     
                  <div className="intro-buttons-container">
                     <button className="know-more-button" onClick={openModal}>
