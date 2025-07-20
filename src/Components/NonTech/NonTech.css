@@ -1,3 +1,4 @@
+
 .non-tech-container {
   padding: 80px 5%;
 }
@@ -63,6 +64,23 @@
     color: var(--text-primary);
     font-size: 1.2rem;
     margin: 0;
+}
+.card-details {
+    margin-top: 15px;
+    border-top: 1px solid var(--secondary-gray);
+    padding-top: 15px;
+    width: 100%;
+}
+
+.card-details p {
+    font-family: 'Inter', sans-serif; /* This is the only major style change */
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 3px 0; /* A little space between the lines */
+    line-height: 1.4;
+    /* Resetting other font styles to be consistent */
+    font-weight: normal; 
+    font-style: normal;
 }
 
 /* Modal Content */

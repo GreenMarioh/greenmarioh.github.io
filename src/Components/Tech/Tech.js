@@ -32,7 +32,7 @@ const skills = { // ... (Skills data remains the same)
 };
 
 const profiles = [ // ... (Profiles data remains the same)
-    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "300+ problems solved" }, { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "" }, { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "" }, { name: "GeeksForGeeks", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks />, desc: "" }, { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
+    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "300+ problems solved" }, { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Current Rating: 983" }, { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Current Rating: 1347" }, { name: "GeeksForGeeks", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks />, desc: "" }, { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
 ];
 
 // --- COMPONENT LOGIC ---

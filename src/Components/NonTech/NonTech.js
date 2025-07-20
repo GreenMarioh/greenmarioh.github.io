@@ -27,16 +27,22 @@ const communityData = [
   {
     name: "Glorious",
     logo: communityLogos.glorious,
+    position: "Community Moderator - TTV and Discord", // <-- ADDED
+    dates: "August 2020 - October 2020",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Moderated forums and provided user support."
   },
   {
     name: "Riot Games (VALORANT)",
     logo: communityLogos.riot,
+      position: "Community Volunteer", // <-- ADDED
+    dates: "May 2020 - Present",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Managed community events and feedback for VALORANT."
   },
   {
     name: "SpaceStation Gaming",
     logo: communityLogos.ssg,
+    position: "Community Moderator", // <-- ADDED
+    dates: "October 2020 - May 2021",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Organized online tournaments and streams."
   },
 ];
@@ -45,11 +51,15 @@ const clubData = [
   {
     name: "GeeksForGeeks Student Chapter",
     logo: communityLogos.gfg,
+      position: "Administration Member", // <-- ADDED
+    dates: "July 2023 - Present",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Hosted coding workshops and hackathons."
   },
   {
     name: "CyberVault",
     logo: communityLogos.cybervault,
+      position: "Management Member", // <-- ADDED
+    dates: "2023 - Present",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conducted cybersecurity awareness sessions."
   },
 ];
@@ -75,6 +85,10 @@ const NonTech = () => {
                 <div key={item.name} className="community-card" onClick={() => openModal(item)}>
                     <img src={item.logo} alt={`${item.name} logo`} className="community-logo" />
                     <h4>{item.name}</h4>
+                    <div className="card-details">
+                    <p className="card-position">{item.position}</p>
+                    <p className="card-dates">{item.dates}</p>
+                </div>
                 </div>
             ))}
         </div>
