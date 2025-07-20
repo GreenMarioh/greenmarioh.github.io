@@ -14,12 +14,12 @@ const Contact = () => {
     e.preventDefault();
     setStatus('Sending...');
 
-    emailjs.send(
-      'YOUR_SERVICE_ID',      // Replace with your EmailJS Service ID
-      'YOUR_TEMPLATE_ID',     // Replace with your EmailJS Template ID
-      formData,
-      'YOUR_USER_ID'          // Replace with your EmailJS User ID (Public Key)
-    )
+     emailjs.send(
+    process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+    process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+    formData,
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY // This is your Public Key
+  )
     .then((response) => {
        console.log('SUCCESS!', response.status, response.text);
        setStatus('Message sent successfully!');

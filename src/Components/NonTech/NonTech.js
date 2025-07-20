@@ -4,8 +4,8 @@ import Modal from '../Modal/Modal';
 // Import icons & logos
 import { SiAdobephotoshop, SiAdobepremierepro, SiAdobeaftereffects, SiAdobelightroom } from "react-icons/si";
 
-// Make sure to add your logo files in the public/assets/logos folder
-// Example: public/assets/logos/riot.png
+
+// public/assets/logos/riot.png
 const communityLogos = {
     riot: '/assets/logos/riot.png',
     glorious: '/assets/logos/glorious.svg',

@@ -1,17 +1,48 @@
 .footer {
-  text-align: center;
-  padding: 40px 5%;
+  padding: 30px 5%;
   background-color: var(--primary-black);
   border-top: 1px solid var(--secondary-gray);
+
+  /* New Flexbox Layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 20px;
 }
 
+.footer-text {
+  text-align: left;
+}
+
+/* Rule to lessen the gaps */
+.footer-text p {
+  margin: 3px 0; /* Reduced vertical margin */
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.repo-link a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.repo-link a:hover {
+  color: var(--primary-green);
+}
+
+/* Updated Social Links style */
 .social-links {
-  margin-bottom: 20px;
+  margin: 0; /* Remove previous margins */
 }
 
 .social-links a {
-  font-size: 2rem;
-  margin: 0 15px;
+  font-size: 1.8rem;
+  margin-left: 20px; /* Space between icons */
   color: var(--text-secondary);
   transition: color 0.3s ease;
 }
@@ -20,7 +51,17 @@
   color: var(--primary-green);
 }
 
-.footer p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+.kitty-icon {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.kitty-icon:hover {
+  color: var(--primary-green);
+  transform: scale(1.1) rotate(-10deg);
 }

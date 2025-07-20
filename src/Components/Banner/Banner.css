@@ -8,19 +8,77 @@
   width: 90%;
   z-index: 1000;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center desktop nav */
   align-items: center;
   border-bottom: 1px solid var(--secondary-gray);
 }
 
-.banner nav a {
-  margin: 0 20px;
-  font-size: 1.1rem;
+/* --- Desktop Navigation --- */
+.desktop-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.desktop-nav a {
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-primary);
   transition: color 0.3s ease;
+  padding: 5px 0;
 }
 
-.banner nav a:hover {
+.desktop-nav a:hover {
   color: var(--primary-green);
+}
+
+/* --- Mobile Navigation (Hidden by default) --- */
+.mobile-menu-icon {
+  display: none; /* Hidden on desktop */
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  z-index: 1002; /* Ensure it's above the mobile nav */
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--primary-black);
+  position: absolute;
+  top: 100%; /* Position it right below the banner */
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--secondary-gray);
+  
+  /* Hide it off-screen by default */
+  transform: translateY(-200%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1001;
+}
+
+.mobile-nav.open {
+  transform: translateY(0); /* Slide it into view */
+}
+
+.mobile-nav a {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+/* --- Media Query for Mobile Devices --- */
+@media (max-width: 820px) {
+  .banner {
+    justify-content: flex-end; /* Align hamburger icon to the right */
+  }
+
+  .desktop-nav {
+    display: none; /* Hide desktop links */
+  }
+
+  .mobile-menu-icon {
+    display: block; /* Show hamburger icon */
+  }
 }
