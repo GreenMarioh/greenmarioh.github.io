@@ -8,7 +8,6 @@ import NonTech from './Components/NonTech/NonTech';
 import Connect from './Components/Connect/Connect';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
-import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-       <Analytics />
     </div>
   );
 }
