@@ -13,10 +13,10 @@
   text-align: left;
 }
 .description {
-  color: var(--text-secondary);  /* A light gray for easy reading */
-  font-size: 0.95rem;            /* Standard, comfortable text size */
-  line-height: 1.6;              /* Ample space between lines */
-  margin: 0 0 20px 0;            /* Space below the paragraph */
+  color: var(--text-secondary);  
+  font-size: 0.95rem;            
+  line-height: 1.6;             
+  margin: 0 0 20px 0;            
   flex-grow: 1;                  /* Helps push links to the bottom of the card */
   text-align: center;
 }
@@ -26,7 +26,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 60px;
 }
 .creative-skill-item {
     display: flex;
@@ -47,18 +47,48 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
+
 .community-card {
     background-color: var(--secondary-gray);
-    padding: 20px;
+    padding: 25px 20px;
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Add flexbox for better vertical alignment */
+    display: flex;
+    flex-direction: column;
 }
+
+/* Update the hover effect with a glow */
 .community-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 255, 127, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 255, 127, 0.1);
 }
+
+.community-card h4 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin: 0;
+    /* Add flex-grow to push content below it to the bottom */
+    flex-grow: 1;
+}
+
+.view-details-cue {
+    margin-top: 15px; /* Ensures space from the content above */
+    padding-top: 15px;
+    border-top: 1px solid var(--secondary-gray);
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.4s ease;
+}
+
+.community-card:hover .view-details-cue {
+    opacity: 1; /* Revealed on hover */
+}
+
 .community-logo {
     height: 80px;
     margin-bottom: 15px;
