@@ -10,7 +10,7 @@ const Introduction = () => {
     const closeModal = () => setIsModalOpen(false);
     
     // CV link from the old component is now here
-    const cvUrl = `https://drive.google.com/file/d/1p2OIaUxBBGs_Cy4Hv1I0DndbQDdnD_Ui/view`;
+    const cvUrl = `https://drive.google.com/file/d/1BOXlBtc7U3EzD-iXKECnTPOvz15ZttRW/view`;
 
     return (
         <>
