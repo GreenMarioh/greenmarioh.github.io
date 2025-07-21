@@ -152,6 +152,9 @@ const NonTech = () => {
                     <p className="card-position">{item.position}</p>
                     <p className="card-dates">{item.dates}</p>
                 </div>
+                 <div className="view-details-cue">
+                    <span>View Details &rarr;</span>
+                </div>
                 </div>
             ))}
         </div>

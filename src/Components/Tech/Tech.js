@@ -76,6 +76,9 @@ const Tech = () => {
                                     <FaGithub /> GitHub
                                 </a>
                             </div>
+                            <div className="view-project-cue">
+                                <span>Expand &rarr;</span>
+                            </div>
                         </div>
                     ))}
                      <a href="https://github.com/GreenMarioh" target="_blank" rel="noopener noreferrer" className="project-card coming-soon">
@@ -126,6 +129,19 @@ const Tech = () => {
                                <img key={i} src={img} alt={`${modalContent.name} screenshot ${i+1}`} />
                            ))}
                         </div>
+                        <br></br>
+                         <div className="modal-project-links">
+                {modalContent.liveUrl && (
+                    <a href={modalContent.liveUrl} target="_blank" rel="noopener noreferrer" className="modal-link-button">
+                        <FaExternalLinkAlt />
+                        <span> Live Demo</span>
+                    </a>
+                )}
+                <a href={modalContent.githubUrl} target="_blank" rel="noopener noreferrer" className="modal-link-button">
+                    <FaGithub />
+                    <span> GitHub</span>
+                </a>
+            </div>
                     </div>
                 )}
             </Modal>

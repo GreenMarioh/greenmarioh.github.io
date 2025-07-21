@@ -61,6 +61,21 @@
 .project-card:hover {
   transform: translateY(-5px);
   border-color: var(--primary-green);
+  box-shadow: 0 8px 25px rgba(0, 255, 127, 0.1); /* Added glow effect */
+}
+.view-project-cue {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--primary-green);
+  opacity: 0; 
+  transition: opacity 0.4s ease; 
+}
+
+/* 3. Make the cue visible when the card is hovered */
+.project-card:hover .view-project-cue {
+  opacity: 1;
 }
 
 .project-card h4 {
@@ -159,11 +174,11 @@
 
 /* Profiles Grid */
 .profiles-grid {
-    display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;  
-    flex-wrap: wrap;
-    gap: 15px;
+    display: grid;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;  
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+     gap: 20px;
 }
 
 .profile-button {
@@ -230,4 +245,17 @@ background-color: black;
 
 .screenshots img:hover {
 border-color: var(--primary-green);
+}
+.modal-link-button {
+display: inline-flex;
+align-items: center; /* Ensure vertical centering /
+gap: 15px; / Increased gap between icon and text */
+padding: 10px 20px;
+background-color: var(--primary-black);
+color: var(--text-primary);
+border: 1px solid var(--secondary-gray);
+border-radius: 8px;
+text-decoration: none;
+font-weight: 500;
+transition: all 0.3s ease;
 }
