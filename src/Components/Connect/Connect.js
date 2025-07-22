@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Connect.css';
 
 // --- Import Icons ---
-// 1. FaXTwitter removed from 'fa', SiX added to 'si'
 import { FaSteam, FaDiscord, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
-import { SiEpicgames, SiRiotgames, SiX } from 'react-icons/si';
+// 1. SiMonkeytype has been added to the import list
+import { SiEpicgames, SiRiotgames, SiX, SiMonkeytype } from 'react-icons/si';
 
 // --- EDITABLE DATA ---
 const connectProfiles = [
@@ -15,7 +15,9 @@ const connectProfiles = [
     // { name: "Riot ID", type: "text", value: "MohnishKumar#360", icon: <SiRiotgames /> },
     { name: "Steam", type: "link", value: "https://steamcommunity.com/id/green_mario/", icon: <FaSteam /> },
     // { name: "Epic Games", type: "text", value: "MohnishK360", icon: <SiEpicgames /> },
-    { name: "X", type: "link", value: "https://x.com/GreenMarioh", icon: <SiX /> }, // 2. Icon updated to SiX
+    { name: "X", type: "link", value: "https://x.com/GreenMarioh", icon: <SiX /> },
+    // 2. New object for Monkeytype added
+    { name: "Monkeytype", type: "link", value: "https://monkeytype.com/profile/greenmarioh", icon: <SiMonkeytype /> },
 ];
 
 const Connect = () => {
