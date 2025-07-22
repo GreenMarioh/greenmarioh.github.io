@@ -97,7 +97,7 @@ const clubData = [
     name: "GeeksForGeeks Student Chapter",
     logo: communityLogos.gfg,
       position: "Administration Member", // <-- ADDED
-    dates: "July 2023 - Present",
+    dates: "July 2024 - Present",
     description: `<h3>Administration Member</h3>
   <p><em>2023 – Present</em></p>
   <p>
@@ -113,9 +113,9 @@ const clubData = [
     name: "CyberVault",
     logo: communityLogos.cybervault,
       position: "Management Member", // <-- ADDED
-    dates: "2023 - Present",
+    dates: "2024 - Present",
     description: ` <h3>Management Member</h3>
-  <p><em>2023 – Present</em></p>
+  <p><em>2024 – Present</em></p>
   <p>
     At CyberVault, I serve as a management team member, focusing on organizing <strong>cybersecurity workshops, CTF (Capture The Flag) competitions,</strong> 
     and <strong>awareness sessions</strong> aimed at cultivating interest in ethical hacking and infosec.
