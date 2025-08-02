@@ -25,6 +25,12 @@ const projects = [
     images: ["https://greenmario.hep.gg/PZk_SCagG.png", "https://greenmario.hep.gg/ai5KBGL2Q.png","https://greenmario.hep.gg/-IHqoSY_k.png"],
     githubUrl: "https://github.com/GreenMarioh/Whipper"
   },
+  {
+    name: "Spotify-YouTube playlist converter",
+    description: "This project allows you to convert a Spotify playlist into a private YouTube playlist by searching for matching videos (usually official audio) on YouTube and vice versa.",
+    images: ["https://greenmario.hep.gg/RqxhkQzTv.png"],
+    githubUrl: "https://github.com/GreenMarioh/yt-spotify-converter"
+  },
 ];
 
 const skills = { // ... (Skills data remains the same)
