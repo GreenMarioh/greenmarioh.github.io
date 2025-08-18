@@ -33,12 +33,12 @@ const projects = [
   },
 ];
 
-const skills = { // ... (Skills data remains the same)
+const skills = { 
     Programming: [ { name: "C/C++", icon: <SiCplusplus />, special: true }, { name: "JavaScript", icon: <SiJavascript /> }, { name: "Dart", icon: <SiDart /> }, { name: "Java", icon: <FaJava />}, ], Web: [ { name: "HTML", icon: <SiHtml5 /> }, { name: "CSS", icon: <SiCss3 /> }, { name: "ReactJS", icon: <SiReact />}, { name: "NodeJS", icon: <SiNodedotjs /> }, ], Database: [ { name: "MySQL", icon: <SiMysql /> }, { name: "PostgreSQL", icon: <SiPostgresql /> }, ], Security: [ { name: "Kali Linux", icon: <SiKalilinux /> }, { name: "Nmap", icon: <TbTargetArrow /> }, { name: "Metasploit", icon: <GiBrandyBottle />}, { name: "Burp Suite", icon: <GiBrandyBottle />}, ], Misc: [ { name: "Git/GitHub", icon: <SiGit /> }, { name: "LaTeX", icon: <SiLatex />}, { name: "Linux", icon: <DiLinux /> }, { name: "RegEx", icon: <DiLinux /> }, ]
 };
 
-const profiles = [ // ... (Profiles data remains the same)
-    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "300+ problems solved" }, { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Current Rating: 1020" }, { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Current Rating: 1409\n ⭐⭐ \n Div 3" }, { name: "GeeksForGeeks", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks />, desc: "" }, { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
+const profiles = [
+    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "300+ problems solved" }, { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1020" }, { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1412\n ⭐⭐ Div 3" }, { name: "GeeksForGeeks", desc: "40+ Problems Solved", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks /> }, { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
 ];
 
 // --- COMPONENT LOGIC ---

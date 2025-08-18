@@ -175,10 +175,9 @@
 /* Profiles Grid */
 .profiles-grid {
     display: grid;
-    justify-content: center; /* Centers horizontally */
-    align-items: center;  
-     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-     gap: 20px;
+    /* This creates a responsive grid where all items stretch to be the same size */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
 }
 
 .profile-button {
