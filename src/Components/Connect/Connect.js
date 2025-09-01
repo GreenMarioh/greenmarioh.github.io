@@ -12,7 +12,7 @@ const connectProfiles = [
     { name: "GitHub", type: "link", value: "https://github.com/GreenMarioh", icon: <FaGithub /> },
     { name: "Instagram", type: "link", value: "https://instagram.com/hmm.mohnish", icon: <FaInstagram /> },
     { name: "Discord", type: "text", value: "green.mario", icon: <FaDiscord /> },
-    // { name: "Riot ID", type: "text", value: "MohnishKumar#360", icon: <SiRiotgames /> },
+    // { name: "Riot ID", type: "text", value: "EEE#360", icon: <SiRiotgames /> },
     { name: "Steam", type: "link", value: "https://steamcommunity.com/id/green_mario/", icon: <FaSteam /> },
     // { name: "Epic Games", type: "text", value: "MohnishK360", icon: <SiEpicgames /> },
     { name: "X", type: "link", value: "https://x.com/GreenMarioh", icon: <SiX /> },

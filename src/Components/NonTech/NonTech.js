@@ -96,12 +96,17 @@ const clubData = [
   {
     name: "GeeksForGeeks Student Chapter",
     logo: communityLogos.gfg,
-      position: "Administration Member", // <-- ADDED
+      
+      position: "Marketing Lead",
     dates: "July 2024 - Present",
-    description: `<h3>Administration Member</h3>
-  <p><em>2023 – Present</em></p>
+    description: `
+    <h3>Marketing Lead</h3>
+  <p><em>August 2025 – Present</em></p>
+  <h3>Administration Member</h3>
+  <p><em>2024 – August 2025</em></p>
   <p>
-    As an active administration member of the GeeksforGeeks Student Chapter, I coordinate and support various technical initiatives, including 
+    Currently responsible for leading the Marketing domain for the GeeksForGeeks Student Chapter.
+    Previously administration member of the GeeksforGeeks Student Chapter, I coordinate and support various technical initiatives, including 
     <strong>coding workshops, programming competitions,</strong> and non technial work like <strong>promotions, marketing and creatives such as content creation</strong>.
   </p>
   <p>
