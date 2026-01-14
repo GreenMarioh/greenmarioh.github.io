@@ -21,6 +21,7 @@ const Banner = () => {
       {/* Desktop Navigation (visible on larger screens) */}
       <nav className="desktop-nav">
         <a href="#intro">Home</a>
+        <a href="#experience">Experience</a>
         <a href="#tech">Tech</a>
         <a href="#non-tech">Creative</a>
         <a href="#connect">Connect</a>

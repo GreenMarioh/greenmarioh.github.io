@@ -1,11 +1,17 @@
+/* src/Components/Introduction/Introduction.css */
+
 .intro-container {
-  min-height: 80vh;
+  min-height: 100vh; /* Full-screen height for hero impact */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0 10%;
+  position: relative;
+  /* Spotlight effect: subtle glow in the center fading to black */
+  background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+  border-bottom: 1px solid rgba(0, 255, 127, 0.1); 
 }
 
 .intro-container h1 {
@@ -21,15 +27,14 @@
   color: var(--text-secondary);
 }
 
-/* Replace your old button styles with this block */
-
+/* Button Group Container */
 .intro-buttons-container {
   display: flex;
-  flex-direction: row;   /* Aligns buttons side-by-side */
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 25px;             /* This creates the gap between the buttons */
-  margin-top: 40px;      /* This creates the space above the button group */
+  gap: 25px;
+  margin-top: 40px;
 }
 
 /* Primary Button Style (Outline) */
@@ -47,13 +52,18 @@
   letter-spacing: 1px;
 }
 
-/* Secondary Button Style (also Outline) */
+.know-more-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+}
+
+/* Secondary Button Style */
 .download-cv-button {
   background-color: transparent;
   color: var(--primary-green);
   border: 2px solid var(--primary-green);
   border-radius: 8px;
-  padding: 12px 25px; /* Slightly different padding to account for icon */
+  padding: 12px 25px;
   font-size: 1.1rem;
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
@@ -65,16 +75,6 @@
   letter-spacing: 1px;
 }
 
-/* --- Hover Effects --- */
-
-.know-more-button:hover{
-   
-  
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
-
-
-}
 .download-cv-button:hover {
   background-color: var(--primary-green);
   color: var(--primary-black);
@@ -82,8 +82,33 @@
   box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
 }
 
+/* --- Scroll Indicator --- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 2s; /* Appears after other elements */
+}
 
-/* 1. Define the animation */
+.bounce {
+  animation: bounce 2s infinite;
+  color: var(--primary-green);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+/* --- Entrance Animations --- */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -95,11 +120,9 @@
   }
 }
 
-/* 2. Apply the animation to the elements with delays */
 .intro-name,
 .intro-tagline,
 .intro-buttons-container {
-  /* This keeps the elements hidden before the animation starts */
   animation-fill-mode: both;
   animation-name: fadeInUp;
   animation-duration: 1.5s;
@@ -107,13 +130,13 @@
 }
 
 .intro-name {
-  animation-delay: 0.4s; /* Name appears first */
+  animation-delay: 0.4s;
 }
 
 .intro-tagline {
-  animation-delay: 1.0s; /* Tagline appears second */
+  animation-delay: 1.0s;
 }
 
 .intro-buttons-container {
-  animation-delay: 1.6s; /* Buttons appear last */
+  animation-delay: 1.6s;
 }
