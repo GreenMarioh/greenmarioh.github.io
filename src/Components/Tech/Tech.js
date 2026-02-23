@@ -5,7 +5,7 @@ import './Tech.css';
 import Modal from '../Modal/Modal';
 // --- Import Icons ---
 import { FaJava, FaGithub, FaExternalLinkAlt, FaPlus, FaUserSecret } from 'react-icons/fa';
-import { SiCplusplus, SiJavascript, SiDart, SiHtml5, SiCss3, SiReact, SiNodedotjs, SiMysql, SiPostgresql, SiKalilinux, SiLatex, SiGit, SiLeetcode, SiCodeforces, SiCodechef, SiGeeksforgeeks } from "react-icons/si";
+import { SiCplusplus, SiJavascript, SiTypescript, SiPython, SiHtml5, SiCss3, SiReact, SiNodedotjs, SiMysql, SiPostgresql, SiKalilinux, SiLatex, SiGit, SiLeetcode, SiCodeforces, SiCodechef, SiGeeksforgeeks } from "react-icons/si";
 import { TbTargetArrow } from "react-icons/tb";
 import { GiBrandyBottle } from "react-icons/gi";
 import { DiLinux } from "react-icons/di";
@@ -34,11 +34,11 @@ const projects = [
 ];
 
 const skills = { 
-    Programming: [ { name: "C/C++", icon: <SiCplusplus />, special: true }, { name: "JavaScript", icon: <SiJavascript /> }, { name: "Dart", icon: <SiDart /> }, { name: "Java", icon: <FaJava />}, ], Web: [ { name: "HTML", icon: <SiHtml5 /> }, { name: "CSS", icon: <SiCss3 /> }, { name: "ReactJS", icon: <SiReact />}, { name: "NodeJS", icon: <SiNodedotjs /> }, ], Database: [ { name: "MySQL", icon: <SiMysql /> }, { name: "PostgreSQL", icon: <SiPostgresql /> }, ], Security: [ { name: "Kali Linux", icon: <SiKalilinux /> }, { name: "Nmap", icon: <TbTargetArrow /> }, { name: "Metasploit", icon: <GiBrandyBottle />}, { name: "Burp Suite", icon: <GiBrandyBottle />}, ], Misc: [ { name: "Git/GitHub", icon: <SiGit /> }, { name: "LaTeX", icon: <SiLatex />}, { name: "Linux", icon: <DiLinux /> }, { name: "RegEx", icon: <DiLinux /> }, ]
+    Programming: [ { name: "C/C++", icon: <SiCplusplus />, special: true }, { name: "JavaScript", icon: <SiJavascript /> },{ name: "Python", icon: <SiPython /> }, { name: "Java", icon: <FaJava />}, { name: "TypeScript", icon: <SiTypescript /> }, ], Web: [ { name: "HTML", icon: <SiHtml5 /> }, { name: "CSS", icon: <SiCss3 /> }, { name: "ReactJS", icon: <SiReact />}, { name: "NodeJS", icon: <SiNodedotjs /> }, ], Database: [ { name: "MySQL", icon: <SiMysql /> }, { name: "PostgreSQL", icon: <SiPostgresql /> }, ], Security: [ { name: "Kali Linux", icon: <SiKalilinux /> }, { name: "Nmap", icon: <TbTargetArrow /> }, { name: "Metasploit", icon: <GiBrandyBottle />}, { name: "Burp Suite", icon: <GiBrandyBottle />}, ], Misc: [ { name: "Git/GitHub", icon: <SiGit /> }, { name: "LaTeX", icon: <SiLatex />}, { name: "Linux", icon: <DiLinux /> }, { name: "RegEx", icon: <DiLinux /> }, ]
 };
 
 const profiles = [
-    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "400+ problems solved" }, { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1206 (Pupil)" }, { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1412\n ⭐⭐ Div 3" }, { name: "GeeksForGeeks", desc: "40+ Problems Solved", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks /> }, { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
+    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "450+ problems solved" }, { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1208 (Pupil)" }, { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1449\n ⭐⭐ Div 3" }, { name: "GeeksForGeeks", desc: "40+ Problems Solved", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks /> }, { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
 ];
 
 // --- COMPONENT LOGIC ---

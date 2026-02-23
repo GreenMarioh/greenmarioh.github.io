@@ -2,7 +2,6 @@ import React from 'react';
 import './Footer.css';
 import { FaGithub, FaLinkedin, FaInstagram, FaCode, FaCat } from 'react-icons/fa';
 
-// --- EDITABLE DATA ---
 const socials = [
     { name: 'GitHub', url: 'https://github.com/GreenMarioh', icon: <FaGithub /> },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/Mohnish-K', icon: <FaLinkedin /> },
@@ -13,9 +12,7 @@ const Footer = () => {
   return (
     <>
       <footer className="footer">
-        {/* 1. Group all text content into a new div */}
         <div className="footer-text">
-          <p>This website may or may not have been vibe coded ;)</p>
           <p>With &lt;3, by Mohnish.</p>
           <p className="repo-link">
             <a href="https://github.com/GreenMarioh/portfolio" target="_blank" rel="noopener noreferrer">

@@ -12,6 +12,7 @@ const communityLogos = {
     ssg: '/assets/logos/SSG.png',
     gfg: '/assets/logos/gfg.png',
     cybervault: '/assets/logos/cybervault.jpeg',
+    algozenith: '/assets/logos/algozenith.png'
 };
 
 // --- EDITABLE DATA ---
@@ -93,6 +94,23 @@ const communityData = [
 ];
 
 const clubData = [
+  
+  {
+    name: "CyberVault",
+    logo: communityLogos.cybervault,
+      position: "Management Member", // <-- ADDED
+    dates: "2024 - Present",
+    description: ` <h3>Management Member</h3>
+  <p><em>2024 – Present</em></p>
+  <p>
+    At CyberVault, I serve as a management team member, focusing on organizing <strong>cybersecurity workshops, CTF (Capture The Flag) competitions,</strong> 
+    and <strong>awareness sessions</strong> aimed at cultivating interest in ethical hacking and infosec.
+  </p>
+  <p>
+    I help facilitate hands-on learning experiences and guide students exploring cybersecurity concepts, tools, and career paths through collaborative events 
+    and practical sessions.
+  </p>`
+  },
   {
     name: "GeeksForGeeks Student Chapter",
     logo: communityLogos.gfg,
@@ -115,19 +133,14 @@ const clubData = [
   </p>`
   },
   {
-    name: "CyberVault",
-    logo: communityLogos.cybervault,
-      position: "Management Member", // <-- ADDED
-    dates: "2024 - Present",
-    description: ` <h3>Management Member</h3>
-  <p><em>2024 – Present</em></p>
+    name: "AlgoZenith ",
+    logo: communityLogos.algozenith,
+      position: "Founding Member", // 
+    dates: "2025 - Present",
+    description: ` <h3>Founding Member</h3>
+  <p><em>2025 – Present</em></p>
   <p>
-    At CyberVault, I serve as a management team member, focusing on organizing <strong>cybersecurity workshops, CTF (Capture The Flag) competitions,</strong> 
-    and <strong>awareness sessions</strong> aimed at cultivating interest in ethical hacking and infosec.
-  </p>
-  <p>
-    I help facilitate hands-on learning experiences and guide students exploring cybersecurity concepts, tools, and career paths through collaborative events 
-    and practical sessions.
+   A founding member of the AlgoZenith KIIT Chapter Society, instrumental in establishing a student-driven platform dedicated to algorithmic thinking, data structures, and competitive programming. Contributed to setting the chapter’s vision, organizing technical workshops, coding contests, and peer-led learning sessions to foster a strong problem-solving culture on campus
   </p>`
   },
 ];
