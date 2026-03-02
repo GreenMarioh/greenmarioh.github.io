@@ -36,6 +36,7 @@ const Banner = () => {
       {/* Mobile Navigation Dropdown */}
       <nav className={`mobile-nav ${isOpen ? 'open' : ''}`}>
         <a href="#intro" onClick={closeMenu}>Home</a>
+        <a href="#experience" onClick={closeMenu}>Experience</a>
         <a href="#tech" onClick={closeMenu}>Tech</a>
         <a href="#non-tech" onClick={closeMenu}>Creative</a>
         <a href="#connect" onClick={closeMenu}>Connect</a>
