@@ -39,8 +39,8 @@ const skills = {
 };
 
 const profiles = [
-    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "475+ problems solved" }, 
-    { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1208 (Pupil)" }, 
+    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "500+ problems solved" }, 
+    { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1333 (Pupil)" }, 
     { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1516\n ⭐⭐ Div 3" }, 
     { name: "GeeksForGeeks", desc: "40+ Problems Solved", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks /> }, 
     { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
@@ -115,7 +115,7 @@ const Tech = () => {
 
             <div className="subsection">
                 <h3>Coding Profiles</h3>
-                <p className="subsection-description">Trying to set my foot in problem solving and competitive programming.</p>
+                <p className="subsection-description">Problem solving and competitive programming.</p>
                 <div className="profiles-grid">
                      {profiles.map(profile => (
                          <a key={profile.name} href={profile.url} target="_blank" rel="noopener noreferrer" className="profile-button">
