@@ -41,7 +41,7 @@ const skills = {
 const profiles = [
     { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "500+ problems solved" }, 
     { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1333 (Pupil)" }, 
-    { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1516\n ⭐⭐ Div 3" }, 
+    { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1519\n ⭐⭐ Div 3" }, 
     { name: "GeeksForGeeks", desc: "40+ Problems Solved", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks /> }, 
     { name: "TryHackMe", url: "https://tryhackme.com/p/Green.Mario", icon: <FaUserSecret />, desc: "Top 15% Global" },
     // Updated Codolio to use the FaCode icon as a placeholder
