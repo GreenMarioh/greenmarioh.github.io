@@ -99,7 +99,7 @@ const clubData = [
     name: "CyberVault",
     logo: communityLogos.cybervault,
       position: "Management Member", // <-- ADDED
-    dates: "2024 - Present",
+    dates: "2024 - April 2026",
     description: ` <h3>Management Member</h3>
   <p><em>2024 – Present</em></p>
   <p>
@@ -119,7 +119,7 @@ const clubData = [
     dates: "July 2024 - Present",
     description: `
     <h3>Marketing Lead</h3>
-  <p><em>August 2025 – Present</em></p>
+  <p><em>August 2025 – April 2026</em></p>
   <h3>Administration Member</h3>
   <p><em>2024 – August 2025</em></p>
   <p>
@@ -136,7 +136,7 @@ const clubData = [
     name: "AlgoZenith ",
     logo: communityLogos.algozenith,
       position: "Founding Member", // 
-    dates: "2025 - Present",
+    dates: "2025 - 2026",
     description: ` <h3>Founding Member</h3>
   <p><em>2025 – Present</em></p>
   <p>

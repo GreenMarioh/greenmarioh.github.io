@@ -28,6 +28,12 @@ const projects = [
     images: ["https://greenmario.hep.gg/RqxhkQzTv.png"],
     githubUrl: "https://github.com/GreenMarioh/yt-spotify-converter"
   },
+  {
+    name: "Nimble",
+    description: "Control your mouse with just your hand and a webcam. Nimble uses computer vision to track your hand in real time and translate gestures into mouse input — no hardware, no drivers, just a camera and Python. Platform Independent!",
+    images: [],
+    githubUrl: "https://github.com/GreenMarioh/Nimble"
+  },
 ];
 
 const skills = { 
@@ -39,7 +45,7 @@ const skills = {
 };
 
 const profiles = [
-    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "500+ problems solved" }, 
+    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "525+ problems solved" }, 
     { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1333 (Pupil)" }, 
     { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1519\n ⭐⭐ Div 3" }, 
     { name: "GeeksForGeeks", desc: "40+ Problems Solved", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks /> }, 
