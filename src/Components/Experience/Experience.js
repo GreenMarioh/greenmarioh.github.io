@@ -8,7 +8,7 @@ const experiences = [
     role: "Assistant Developer",
     details: [
       "Assistant developer for premium features used in large gaming communities (VALORANT and VALORANT LFG Discords)",
-      "Implemented feature-gated systems including role-based access and premium command routing"
+      "Built Role-Based Access Control (RBAC) mechanisms, modular features using TypeScript and the Sapphire frame-work, implementing persistent task scheduling, clan management systems, and Prisma database middleware.."
     ]
   },
   
