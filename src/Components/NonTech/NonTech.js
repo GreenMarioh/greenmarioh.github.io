@@ -12,7 +12,8 @@ const communityLogos = {
     ssg: '/assets/logos/SSG.png',
     gfg: '/assets/logos/gfg.png',
     cybervault: '/assets/logos/cybervault.jpeg',
-    algozenith: '/assets/logos/algozenith.png'
+    algozenith: '/assets/logos/algozenith.png',
+    kiit: '/assets/logos/kiit.webp',
 };
 
 // --- EDITABLE DATA ---
@@ -116,7 +117,7 @@ const clubData = [
     logo: communityLogos.gfg,
       
       position: "Marketing Lead",
-    dates: "July 2024 - Present",
+    dates: "July 2024 - July 2026",
     description: `
     <h3>Marketing Lead</h3>
   <p><em>August 2025 – April 2026</em></p>
@@ -141,6 +142,20 @@ const clubData = [
   <p><em>2025 – Present</em></p>
   <p>
    A founding member of the AlgoZenith KIIT Chapter Society, instrumental in establishing a student-driven platform dedicated to algorithmic thinking, data structures, and competitive programming. Contributed to setting the chapter’s vision, organizing technical workshops, coding contests, and peer-led learning sessions to foster a strong problem-solving culture on campus
+  </p>`
+  },
+  {
+    name: "KIIT Training & Placement Cell",
+    logo: communityLogos.kiit,
+      position: "Student Coordinator", 
+    dates: "2026-2027",
+    description: ` <h3>Student Coordinator</h3>
+  <p><em>2026-2027</em></p>
+  <p>
+    As a Student Coordinator at KIIT, I act as a bridge between students, faculty, and recruiters, ensuring that important information and opportunities are communicated clearly and on time. I help coordinate placement-related activities, address student queries, and ensure that processes run smoothly.
+  </p>
+  <p>
+    The role also involves teamwork, organization, and taking initiative when issues arise. I contribute to coordinating events and recruitment drives, maintaining communication with different stakeholders, and helping students navigate the placement process effectively.
   </p>`
   },
 ];
@@ -202,7 +217,7 @@ const NonTech = () => {
       </div>
 
       <div className="subsection">
-        <h3>College Clubs</h3>
+        <h3>Poistions of Responsibilities</h3>
         {renderGrid(clubData)}
       </div>
 
