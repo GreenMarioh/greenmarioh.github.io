@@ -11,6 +11,13 @@ const experiences = [
       "Built Role-Based Access Control (RBAC) mechanisms, modular features using TypeScript and the Sapphire frame-work, implementing persistent task scheduling, clan management systems, and Prisma database middleware.."
     ]
   },
+  {
+    company: "Infosys (Upcoming)",
+    role: "Digital Specialist Engineer",
+    details: [
+      "Upcoming Digital Specialist Engineer for Infosys after clearing HackWithInfy rounds."
+    ]
+  },
   
 ];
 
