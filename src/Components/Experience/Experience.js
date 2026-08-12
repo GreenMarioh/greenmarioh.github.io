@@ -18,6 +18,13 @@ const experiences = [
       "Upcoming Digital Specialist Engineer for Infosys after clearing HackWithInfy rounds."
     ]
   },
+  {
+    company: "Amazon ML Summer School",
+    role: "Summer School Pupil",
+    details: [
+      "Selected for one of the most exclusive Machine Learning Schools nationwide. "
+    ]
+  }
   
 ];
 

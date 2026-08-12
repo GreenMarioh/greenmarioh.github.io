@@ -34,6 +34,18 @@ const projects = [
     images: [],
     githubUrl: "https://github.com/GreenMarioh/Nimble"
   },
+  {
+    name: "Redrob Candidate Ranking System",
+    description: "This project ranks candidates for AI, Machine Learning, Search, Retrieval, Recommendation Systems, and Applied AI Engineering roles.\nThe system processes large-scale candidate datasets, extracts meaningful signals from candidate profiles, and produces an explainable ranked leaderboard of the most relevant candidates.",
+    images: [],
+    githubUrl: "https://github.com/GreenMarioh/redrob-ranker"
+    },
+    {
+    name: "LoadBalancer",
+    description: "A predictive load balancing system for Software-Defined Networks that uses an Attention-Enhanced Bidirectional LSTM to forecast controller load and proactively migrate OpenFlow switches before saturation occurs.",
+    images: [],
+    githubUrl: "https://github.com/GreenMarioh/load-balancer"
+  },
 ];
 
 const skills = { 
@@ -45,7 +57,7 @@ const skills = {
 };
 
 const profiles = [
-    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "550+ problems solved, 1656 Rating" }, 
+    { name: "LeetCode", url: "https://leetcode.com/u/GreenMario/", icon: <SiLeetcode />, desc: "600+ problems solved, 1656 Rating" }, 
     { name: "CodeForces", url: "https://codeforces.com/profile/greenmario", icon: <SiCodeforces />, desc: "Max Rating: 1366 (Pupil)" }, 
     { name: "CodeChef", url: "https://www.codechef.com/users/green_mario", icon: <SiCodechef />, desc: "Max Rating: 1519\n ⭐⭐ Div 3" }, 
     { name: "GeeksForGeeks", desc: "40+ Problems Solved", url: "https://www.geeksforgeeks.org/user/mohnishk65c8/", icon: <SiGeeksforgeeks /> }, 
