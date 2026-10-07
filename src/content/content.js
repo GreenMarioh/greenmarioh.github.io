@@ -28,16 +28,20 @@ export const personalInfo = {
 export const featuredProjects = [
   {
     id: "spikesync",
-    kicker: "01 // BACKEND & INFRASTRUCTURE",
+    kicker: "01 // SIGNATURE BACKEND & INFRASTRUCTURE",
     name: "SpikeSync",
-    tagline: "Esports Community Infrastructure & Real-Time Sync Engine",
+    tagline: "Esports Broadcast Infrastructure & Sync Engine (2.3M+ Community Scale)",
+    scale: "Official VALORANT Discord (2.3M+ Members)",
     description:
-      "Production-oriented esports tournament synchronization and data acquisition service. Built to provide reliable, low-latency match telemetry and automated event schedules across competitive gaming communities with resilient fault tolerance.",
+      "Production-grade esports tournament infrastructure and automated synchronization engine built to operate as the primary bot posting schedules in the official VALORANT Discord server (2.3M+ members). Powers live tournament schedule distribution, match telemetry updates, automated event notifications, and real-time competitive alerts with high-concurrency fault tolerance and strict rate-limit resilience.",
     highlights: [
-      "Modular backend architecture built with TypeScript and the Sapphire framework on Node.js.",
-      "Strict data boundary enforcement using Zod schema validation across external APIs and scrapers.",
-      "Embedded state persistence with SQLite and Drizzle ORM, minimizing external infrastructure overhead.",
-      "Engineered for reliability with robust retry backoff, API rate limiting, and in-memory TTL caching.",
+      "Engineered as the primary esports schedule distribution bot for the official VALORANT Discord community (2.3M+ members).",
+      "Automated multi-source tournament ingestion: scrapes, normalizes, and schedules broadcasts for VCT and international match brackets.",
+      "Live competitive alerts: dispatches scheduled announcements, match countdowns, and real-time score updates using rich Discord embeds.",
+      "Strict data boundary validation: enforces runtime schema guarantees with Zod across all external tournament feeds and scrapers.",
+      "Embedded sub-millisecond state persistence: leverages SQLite and Drizzle ORM to maintain tournament states without cloud database latency or overhead.",
+      "High-concurrency resilience: token-bucket rate limiting, exponential backoff, in-memory TTL caching, and graceful discord gateway fallback handling.",
+      "Modular TypeScript service architecture built on Node.js and the Sapphire framework with cleanly decoupled feature modules.",
     ],
     stack: [
       "TypeScript",
@@ -46,8 +50,9 @@ export const featuredProjects = [
       "Zod",
       "Drizzle ORM",
       "SQLite",
-      "Data Scraping",
+      "Web Scraping",
       "Task Scheduling",
+      "Caching & Rate Limiting",
     ],
     repo: null, // Private repo in active development
     isPrivate: true,

@@ -101,11 +101,42 @@
   opacity: 0.7;
 }
 
+.title-scale-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.35rem;
+}
+
 .project-name {
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0;
+}
+
+.scale-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--signal-green);
+  background: rgba(0, 255, 127, 0.08);
+  border: 1px solid rgba(0, 255, 127, 0.35);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
+}
+
+.scale-pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--signal-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--signal-green);
+  display: inline-block;
 }
 
 .project-tagline {

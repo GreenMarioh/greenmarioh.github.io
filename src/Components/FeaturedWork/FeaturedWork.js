@@ -58,7 +58,15 @@ const FeaturedWork = () => {
                 </div>
               </div>
 
-              <h3 className="project-name">{project.name}</h3>
+              <div className="title-scale-row">
+                <h3 className="project-name">{project.name}</h3>
+                {project.scale && (
+                  <span className="scale-badge font-mono">
+                    <span className="scale-pulse-dot" aria-hidden="true" />
+                    <span>{project.scale}</span>
+                  </span>
+                )}
+              </div>
               <div className="project-tagline font-mono">{project.tagline}</div>
               <p className="project-desc">{project.description}</p>
 
