@@ -1,11 +1,95 @@
 /* src/Components/FeaturedWork/SpikeSyncWidget.css */
-.spikesync-widget {
+.spikesync-widget-container {
   margin: 1.5rem 0;
-  background: #090d13;
+}
+
+/* Clickable Dropdown Trigger */
+.spikesync-dropdown-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  padding: 0.85rem 1.25rem;
+  background: #0d121a;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.spikesync-dropdown-trigger:hover {
+  background: #111722;
+  border-color: rgba(0, 255, 127, 0.4);
+}
+
+.spikesync-dropdown-trigger.expanded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: var(--signal-green);
+  background: #111827;
+}
+
+.trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.trigger-discord-icon {
+  color: #5865f2;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.trigger-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.trigger-tag {
+  font-size: 0.7rem;
+  color: var(--signal-green);
+  background: rgba(0, 255, 127, 0.08);
+  border: 1px solid rgba(0, 255, 127, 0.25);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.trigger-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.trigger-status {
+  font-size: 0.75rem;
+  color: var(--signal-green);
+  letter-spacing: 0.03em;
+}
+
+.chevron-icon {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.chevron-icon.rotated {
+  transform: rotate(180deg);
+  color: var(--signal-green);
+}
+
+.spikesync-widget-container .spikesync-widget {
+  margin: 0;
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 /* Top Telemetry Header */
