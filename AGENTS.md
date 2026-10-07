@@ -7,6 +7,8 @@ Read `docs/BRIEF.md` fully before planning. It is the source of truth for concep
 - three + @react-three/fiber + @react-three/drei (one persistent Canvas)
 - GSAP + ScrollTrigger for scroll choreography, Lenis for smooth scroll
 - No UI kits. No template code. No stock 3D models.
+- Keep the repo's existing framework and tooling. Do not migrate frameworks.
+- Add only: three, @react-three/fiber, @react-three/drei, gsap, lenis (if the framework is React-based; otherwise ask first).
 
 ## Non-negotiable rules
 1. Every visual or motion effect must express the concept in BRIEF.md ("the portfolio is a live network"). If you cannot say what it reinforces, cut it.

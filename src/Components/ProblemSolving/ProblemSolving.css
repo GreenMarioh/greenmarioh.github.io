@@ -1,0 +1,150 @@
+/* src/Components/ProblemSolving/ProblemSolving.css */
+.problem-solving-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.ps-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.ps-card.highlight-card {
+  border-color: rgba(0, 255, 127, 0.45);
+  background-color: rgba(0, 255, 127, 0.03);
+}
+
+.ps-card:hover {
+  text-decoration: none;
+  border-color: var(--signal-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--signal-green-dim);
+}
+
+.ps-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.ps-platform {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.ps-link-icon {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.ps-card:hover .ps-link-icon {
+  color: var(--signal-green);
+}
+
+.ps-stat-value {
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--signal-green);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.ps-sub-metric {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.sub-metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.sub-metric-text {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.ps-handle {
+  margin-top: auto;
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.ps-handle-icon {
+  font-size: 0.7rem;
+}
+
+/* Secondary Trackers Bar */
+.ps-trackers-bar {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.trackers-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.trackers-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tracker-link {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tracker-link:hover {
+  color: var(--signal-green);
+  text-decoration: none;
+}
+
+.tracker-metric {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 820px) {
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+}

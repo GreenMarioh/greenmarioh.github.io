@@ -1,85 +1,175 @@
-.experience-container {
-  padding: 80px 5%;
-  background-color: var(--primary-black); /* Darker background to contrast with Tech section */
-  text-align: center;
+/* src/Components/Experience/Experience.css */
+.experience-section {
+  padding: 5rem 1.5rem;
+  background-color: var(--bg-primary);
 }
 
-.experience-container h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
+.exp-group {
+  margin-bottom: 2.5rem;
 }
 
-.experience-list {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: left;
+.group-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.group-icon {
+  color: var(--signal-green);
+  font-size: 1rem;
+}
+
+.group-title {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.exp-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .experience-card {
-  background-color: var(--secondary-gray);
-  padding: 30px;
-  border-radius: 8px;
-  border-left: 4px solid var(--primary-green);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 2rem;
+  transition: border-color 0.15s ease;
 }
 
 .experience-card:hover {
-  transform: translateX(10px);
-  border-left-color: #fff; /* Slight highlight on hover */
+  border-color: var(--border-strong);
 }
 
-.experience-header {
+.experience-card.compact-card {
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.exp-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.exp-company-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.exp-company {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.exp-role {
+  font-size: 0.85rem;
+  color: var(--signal-green);
+}
+
+.exp-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-badge {
+  font-size: 0.75rem;
+  color: var(--signal-green);
+  background-color: var(--signal-green-dim);
+  border: 1px solid rgba(0, 255, 127, 0.25);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.exp-period-badge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.exp-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.exp-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.bullet-dash {
+  color: var(--signal-green);
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.exp-two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .exp-two-col-grid {
+    grid-template-columns: 1fr;
+  }
+  .experience-card {
+    padding: 1.25rem;
+  }
+}
+
+.exp-next-prompt {
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
-.company-info {
-  display: flex;
+.prompt-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.prompt-link {
+  font-size: 0.825rem;
+  color: var(--signal-green);
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.5rem;
+  font-weight: 500;
 }
 
-.exp-icon {
-  color: var(--primary-green);
-  font-size: 1.5rem;
-}
-
-.experience-header h3 {
-  font-size: 1.6rem;
-  margin: 0;
-  color: var(--text-primary);
-}
-
-.role-tag {
-  background: rgba(0, 255, 127, 0.1);
-  color: var(--primary-green);
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.experience-details {
-  list-style: none;
-  padding: 0;
-}
-
-.experience-details li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.experience-details li::before {
-  content: "▹";
-  position: absolute;
-  left: 0;
-  color: var(--primary-green);
-  font-weight: bold;
+.prompt-link:hover {
+  text-decoration: underline;
 }

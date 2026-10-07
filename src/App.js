@@ -1,26 +1,42 @@
 import React from 'react';
-import Banner from './Components/Banner/Banner';
-import Introduction from './Components/Introduction/Introduction';
+import Navbar from './Components/Navbar/Navbar';
+import Hero from './Components/Hero/Hero';
+import FeaturedWork from './Components/FeaturedWork/FeaturedWork';
 import Experience from './Components/Experience/Experience';
-import Tech from './Components/Tech/Tech';
-import NonTech from './Components/NonTech/NonTech';
-import Connect from './Components/Connect/Connect';
+import CompetitivePrograms from './Components/CompetitivePrograms/CompetitivePrograms';
+import MoreProjects from './Components/MoreProjects/MoreProjects';
+import TechnicalCapabilities from './Components/TechnicalCapabilities/TechnicalCapabilities';
+import ProblemSolving from './Components/ProblemSolving/ProblemSolving';
+import Leadership from './Components/Leadership/Leadership';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
+import { Analytics } from '@vercel/analytics/react';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Banner />
-      <main>
-        <Introduction />
-        <Experience/>
-        <Tech />
-        <NonTech />
-        <Connect /> 
+    <div className="portfolio-app">
+      {/* Accessible skip link */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
+      <Navbar />
+
+      <main id="main-content">
+        <Hero />
+        <FeaturedWork />
+        <Experience />
+        <CompetitivePrograms />
+        <MoreProjects />
+        <TechnicalCapabilities />
+        <ProblemSolving />
+        <Leadership />
         <Contact />
       </main>
+
       <Footer />
+      <Analytics />
     </div>
   );
 }

@@ -1,42 +1,70 @@
 import React from 'react';
+import { FaCode, FaArrowUp, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiX } from 'react-icons/si';
 import './Footer.css';
-import { FaGithub, FaLinkedin, FaInstagram, FaCode, FaCat } from 'react-icons/fa';
-
-const socials = [
-    { name: 'GitHub', url: 'https://github.com/GreenMarioh', icon: <FaGithub /> },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/Mohnish-K', icon: <FaLinkedin /> },
-    { name: 'Instagram', url: 'https://instagram.com/hmm.mohnish', icon: <FaInstagram /> },
-];
 
 const Footer = () => {
   return (
-    <>
-      <footer className="footer">
-        <div className="footer-text">
-          <p>With &lt;3, by Mohnish.</p>
-          <p className="repo-link">
-            <a href="https://github.com/GreenMarioh/portfolio" target="_blank" rel="noopener noreferrer">
-              <FaCode />
-              <span>View Source Code</span>
-            </a>
+    <footer className="site-footer">
+      <div className="footer-container">
+        <div className="footer-left">
+          <div className="footer-brand font-mono">
+            <span className="brand-accent">&gt;</span> Mohnish Kumar / GreenMario
+          </div>
+          <p className="footer-text">
+            Software Engineer — Systems, Backend Architecture &amp; Applied Machine Learning.
           </p>
-        </div>
-        
-        {/* 2. Social links are now a sibling to the text group */}
-        <div className="social-links">
-          {socials.map(social => (
-            <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
-              {social.icon}
+          <div className="footer-repo font-mono">
+            <a
+              href="https://github.com/GreenMarioh/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="repo-link"
+            >
+              <FaCode aria-hidden="true" />
+              <span>Source Code on GitHub</span>
             </a>
-          ))}
+          </div>
         </div>
-      </footer>
 
-      {/* Kitty icon remains outside the main footer for fixed positioning */}
-      <a href="#intro" className="kitty-icon" aria-label="Scroll to top">
-        <FaCat />
-      </a>
-    </>
+        <div className="footer-right">
+          <div className="footer-social-links">
+            <a
+              href="https://github.com/GreenMarioh"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="footer-social-icon"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://linkedin.com/in/mohnish-k"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="footer-social-icon"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://x.com/GreenMarioh"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="footer-social-icon"
+            >
+              <SiX />
+            </a>
+          </div>
+
+          <a href="#intro" className="back-to-top font-mono" aria-label="Return to top of page">
+            <span>Back to Top</span>
+            <FaArrowUp aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 };
 

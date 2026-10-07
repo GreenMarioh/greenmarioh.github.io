@@ -1,0 +1,131 @@
+/* src/Components/Navbar/Navbar.css */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(7, 9, 14, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.brand-logo:hover {
+  text-decoration: none;
+}
+
+.brand-bracket {
+  color: var(--signal-green);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--signal-green);
+  box-shadow: 0 0 8px var(--signal-green);
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--signal-green);
+  text-decoration: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--signal-green);
+  border-color: var(--border-strong);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* Mobile viewport adjustments */
+@media (max-width: 860px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: max-height 0.25s ease-in-out;
+  }
+
+  .mobile-nav.open {
+    max-height: 380px;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    gap: 0.85rem;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0;
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--signal-green);
+    text-decoration: none;
+  }
+}
