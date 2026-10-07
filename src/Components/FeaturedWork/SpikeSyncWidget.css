@@ -1,12 +1,11 @@
 /* src/Components/FeaturedWork/SpikeSyncWidget.css */
 .spikesync-widget {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
   background: #090d13;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 /* Top Telemetry Header */
@@ -19,36 +18,38 @@
   padding: 0.65rem 1rem;
   background: #0d121a;
   border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.75rem;
+  font-size: 0.725rem;
 }
 
 .topbar-left {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   color: var(--text-primary);
 }
 
-.discord-icon {
+.discord-brand-icon {
   color: #5865f2;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .server-label {
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.04em;
 }
 
-.member-count {
+.source-tag {
   color: var(--signal-green);
-  font-weight: 600;
+  background: rgba(0, 255, 127, 0.08);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 255, 127, 0.25);
 }
 
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  color: var(--text-muted);
+  gap: 0.6rem;
 }
 
 .status-live {
@@ -60,20 +61,23 @@
 }
 
 .status-dot {
-  font-size: 0.45rem;
-  color: var(--signal-green);
-  box-shadow: 0 0 6px var(--signal-green);
+  width: 6px;
+  height: 6px;
+  background-color: var(--signal-green);
   border-radius: 50%;
+  box-shadow: 0 0 6px var(--signal-green);
+  display: inline-block;
 }
 
-.ping-info {
-  color: var(--signal-green);
-  background: rgba(0, 255, 127, 0.08);
-  padding: 0.15rem 0.4rem;
+.tech-badge {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.15rem 0.45rem;
   border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
 }
 
-/* Tabs */
+/* Mode Switcher Tabs */
 .widget-tabs {
   display: flex;
   border-bottom: 1px solid var(--border-subtle);
@@ -87,7 +91,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1rem;
   font-size: 0.775rem;
   background: transparent;
   border: none;
@@ -112,11 +116,11 @@
 /* Viewport */
 .widget-viewport {
   padding: 1.25rem;
-  min-height: 220px;
+  min-height: 240px;
 }
 
-/* Embed Panel (Discord Style) */
-.discord-message {
+/* Tab 1: Discord Message Layout */
+.discord-msg-layout {
   display: flex;
   gap: 1rem;
 }
@@ -135,11 +139,11 @@
   flex-shrink: 0;
 }
 
-.message-content {
+.discord-msg-body {
   flex: 1;
 }
 
-.message-header {
+.discord-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -147,13 +151,13 @@
   margin-bottom: 0.5rem;
 }
 
-.bot-name {
+.author-name {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
-.bot-tag {
+.app-badge {
   font-size: 0.65rem;
   font-weight: 600;
   color: #ffffff;
@@ -162,54 +166,79 @@
   border-radius: 3px;
 }
 
-.post-time {
+.msg-time {
   font-size: 0.725rem;
   color: var(--text-muted);
 }
 
+/* Discord Embed */
 .discord-embed {
   display: flex;
   background: #111722;
   border-radius: 4px;
   overflow: hidden;
-  max-width: 650px;
-  margin-bottom: 1rem;
+  max-width: 660px;
+  margin-bottom: 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.embed-border {
+.embed-color-bar {
   width: 4px;
-  background: var(--signal-green);
   flex-shrink: 0;
 }
 
-.embed-inner {
+.champions-bar {
+  background: #eab308; /* Yellow for Champions per documentation */
+}
+
+.embed-body {
   padding: 1rem 1.25rem;
   width: 100%;
 }
 
-.embed-kicker {
-  font-size: 0.7rem;
-  color: var(--signal-green);
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.05em;
+.embed-event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+  font-size: 0.725rem;
 }
 
-.embed-title {
-  font-size: 1.1rem;
+.event-title {
+  color: #eab308;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.event-stage {
+  color: var(--text-muted);
+}
+
+.embed-versus {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.75rem;
 }
 
-.embed-desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 0.85rem;
+.team-emoji {
+  font-size: 0.75rem;
+  color: var(--signal-green);
+  background: rgba(0, 255, 127, 0.08);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 255, 127, 0.2);
 }
 
-.embed-grid {
+.vs-sep {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.embed-fields {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.65rem 1rem;
@@ -219,44 +248,85 @@
   margin-bottom: 0.75rem;
 }
 
-.grid-cell {
+.embed-field {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
 }
 
-.cell-label {
+.field-name {
   font-size: 0.675rem;
   color: var(--text-muted);
   letter-spacing: 0.05em;
 }
 
-.cell-val {
-  font-size: 0.8rem;
+.field-val {
+  font-size: 0.775rem;
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
-.cell-val.highlight {
+.field-val.highlight {
   color: var(--signal-green);
+  font-weight: 600;
 }
 
 .embed-footer {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 0.675rem;
+  color: var(--text-muted);
+}
+
+/* Reactions Pill */
+.discord-reactions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+}
+
+.reaction-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  color: var(--text-primary);
+}
+
+.reaction-pill.active-react {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.react-icon {
+  color: var(--signal-green);
+  font-size: 0.7rem;
+}
+
+.react-count {
+  font-weight: 600;
+  font-size: 0.725rem;
+}
+
+.react-caption {
   font-size: 0.7rem;
   color: var(--text-muted);
 }
 
-.interactive-bar {
+.embed-sim-actions {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.85rem;
 }
 
-.simulate-btn {
+.sim-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -270,200 +340,209 @@
   transition: all 0.15s ease;
 }
 
-.simulate-btn:hover {
+.sim-btn:hover {
   background: var(--signal-green);
   color: #05070a;
 }
 
-.dispatch-toast {
-  font-size: 0.75rem;
-  color: var(--signal-green);
-}
-
-/* Live Panel */
-.live-status-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.25rem;
-}
-
-.matchup-tag {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-}
-
-.live-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.sim-hint {
   font-size: 0.725rem;
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-sm);
-}
-
-.pulse-red {
-  width: 6px;
-  height: 6px;
-  background: #ef4444;
-  border-radius: 50%;
-  box-shadow: 0 0 6px #ef4444;
-}
-
-.match-scoreboard {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1.5rem;
-  background: #111722;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
-  margin-bottom: 1.25rem;
-}
-
-.team-box {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.team-code {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--signal-green);
-  background: rgba(0, 255, 127, 0.08);
-  padding: 0.35rem 0.7rem;
-  border-radius: var(--radius-sm);
-}
-
-.team-name {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.map-score {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--text-primary);
-}
-
-.vs-divider {
-  font-size: 0.85rem;
   color: var(--text-muted);
-  font-weight: 700;
 }
 
-.map-breakdown {
+/* Tab 2: Polite Scraping Pipeline & LRU */
+.pipeline-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
 }
 
-.map-card {
-  padding: 0.85rem;
+.pipeline-card {
   background: #0d121a;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
+  padding: 1.25rem;
+}
+
+.card-kicker {
+  font-size: 0.75rem;
+  color: var(--signal-green);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.pipeline-steps {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.85rem;
 }
 
-.map-card.active-map {
-  border-color: var(--signal-green);
-  background: rgba(0, 255, 127, 0.03);
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.775rem;
+  line-height: 1.5;
 }
 
-.map-name {
+.step-num {
+  font-size: 0.7rem;
+  color: var(--signal-green);
+  background: rgba(0, 255, 127, 0.1);
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.step-content {
+  color: var(--text-secondary);
+}
+
+.step-content strong {
+  color: var(--text-primary);
+}
+
+.step-content code {
+  color: var(--signal-green);
+  background: rgba(0, 255, 127, 0.06);
+  padding: 0.1rem 0.25rem;
+  border-radius: 2px;
+}
+
+/* Tab 3: Spoilers & Slash Engine */
+.command-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cmd-prompt {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--signal-green);
+}
+
+.cmd-meta {
   font-size: 0.725rem;
   color: var(--text-muted);
 }
 
-.map-result {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
+.spoiler-card {
+  background: #0d121a;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
 }
 
-.map-result.live-score {
-  color: var(--signal-green);
-}
-
-.telemetry-meta {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.7rem;
+.spoiler-title {
+  font-size: 0.75rem;
   color: var(--text-muted);
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-subtle);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.85rem;
 }
 
-/* Logs Panel */
-.logs-panel {
+.spoiler-series {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.spoiler-block {
+  display: inline-block;
+  background: #1e293b;
+  color: #475569;
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.spoiler-block.revealed {
+  background: rgba(0, 255, 127, 0.12);
+  color: var(--signal-green);
+  border: 1px solid rgba(0, 255, 127, 0.3);
+}
+
+.maps-spoiler-list {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  padding: 0.5rem;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem;
   background: #080c12;
   border-radius: var(--radius-sm);
-  font-size: 0.775rem;
 }
 
-.log-line {
+.map-spoiler-row {
   display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  line-height: 1.45;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
 }
 
-.log-time {
+.map-tag {
   color: var(--text-muted);
-  flex-shrink: 0;
+  font-size: 0.725rem;
 }
 
-.log-tag {
-  font-weight: 700;
-  flex-shrink: 0;
-  padding: 0.05rem 0.3rem;
-  border-radius: 2px;
-  font-size: 0.7rem;
+.padding-row .map-tag {
+  color: var(--warn-amber);
 }
 
-.tag-ingest { color: #38bdf8; background: rgba(56, 189, 248, 0.1); }
-.tag-zod { color: #a855f7; background: rgba(168, 85, 247, 0.1); }
-.tag-sqlite { color: #fbbf24; background: rgba(251, 191, 36, 0.1); }
-.tag-cache { color: #34d399; background: rgba(52, 211, 153, 0.1); }
-.tag-rate { color: #f97316; background: rgba(249, 115, 22, 0.1); }
-.tag-dispatch { color: var(--signal-green); background: rgba(0, 255, 127, 0.15); }
-
-.log-msg {
+.spoiler-explanation {
+  font-size: 0.75rem;
   color: var(--text-secondary);
-  word-break: break-word;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--signal-green);
 }
 
-.highlight-log .log-msg {
+.spoiler-explanation code {
   color: var(--signal-green);
-  font-weight: 600;
 }
 
-@media (max-width: 680px) {
-  .map-breakdown {
+.toggle-spoiler-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.775rem;
+  color: var(--signal-green);
+  background: rgba(0, 255, 127, 0.08);
+  border: 1px solid rgba(0, 255, 127, 0.3);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toggle-spoiler-btn:hover {
+  background: var(--signal-green);
+  color: #05070a;
+}
+
+@media (max-width: 768px) {
+  .pipeline-grid {
     grid-template-columns: 1fr;
   }
-  .embed-grid {
+  .embed-fields {
     grid-template-columns: 1fr;
   }
-  .match-scoreboard {
+  .discord-msg-layout {
     flex-direction: column;
-    gap: 0.75rem;
   }
 }

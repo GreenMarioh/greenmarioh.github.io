@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
-import { FaTerminal, FaCalendarAlt, FaBroadcastTower, FaDiscord, FaBolt, FaCircle } from 'react-icons/fa';
+import { FaCalendarAlt, FaShieldAlt, FaEyeSlash, FaDiscord, FaBolt, FaSyncAlt } from 'react-icons/fa';
 import './SpikeSyncWidget.css';
 
 const SpikeSyncWidget = () => {
-  const [activeTab, setActiveTab] = useState('embed'); // 'embed' | 'live' | 'logs'
-  const [isAlertSent, setIsAlertSent] = useState(false);
-
-  const handleSimulateAlert = () => {
-    setIsAlertSent(true);
-    setTimeout(() => setIsAlertSent(false), 3000);
-  };
+  const [activeTab, setActiveTab] = useState('embed'); // 'embed' | 'pipeline' | 'spoilers'
+  const [inPlaceEdited, setInPlaceEdited] = useState(false);
+  const [revealedSpoilers, setRevealedSpoilers] = useState(false);
 
   return (
-    <div className="spikesync-widget" aria-label="SpikeSync Live Telemetry Demo">
+    <div className="spikesync-widget" aria-label="SpikeSync Architecture & Real-World Interface">
       {/* Top Telemetry Header */}
-      <div className="widget-topbar">
-        <div className="topbar-left font-mono">
-          <FaDiscord className="discord-icon" aria-hidden="true" />
-          <span className="server-label">OFFICIAL VALORANT DISCORD</span>
-          <span className="member-count">[2.3M+ MEMBERS]</span>
+      <div className="widget-topbar font-mono">
+        <div className="topbar-left">
+          <FaDiscord className="discord-brand-icon" aria-hidden="true" />
+          <span className="server-label">OFFICIAL VALORANT DISCORD (2.3M+)</span>
+          <span className="source-tag">VLR.gg SYNC ENGINE</span>
         </div>
-        <div className="topbar-right font-mono">
+        <div className="topbar-right">
           <span className="status-live">
-            <FaCircle className="status-dot" aria-hidden="true" />
-            BOT ONLINE
+            <span className="status-dot" aria-hidden="true" />
+            SAPPHIRE / DISCORD.JS v14
           </span>
-          <span className="shard-info">SHARDS: 4/4</span>
-          <span className="ping-info">9ms</span>
+          <span className="tech-badge">SQLITE / DRIZZLE</span>
+          <span className="tech-badge">p-queue (1.5s)</span>
         </div>
       </div>
 
@@ -40,181 +36,250 @@ const SpikeSyncWidget = () => {
           onClick={() => setActiveTab('embed')}
         >
           <FaCalendarAlt aria-hidden="true" />
-          <span>Esports Schedule Embed</span>
+          <span>Discord Match Embed & Emojis</span>
         </button>
 
         <button
           type="button"
           role="tab"
-          aria-selected={activeTab === 'live'}
-          className={`widget-tab font-mono ${activeTab === 'live' ? 'active' : ''}`}
-          onClick={() => setActiveTab('live')}
+          aria-selected={activeTab === 'pipeline'}
+          className={`widget-tab font-mono ${activeTab === 'pipeline' ? 'active' : ''}`}
+          onClick={() => setActiveTab('pipeline')}
         >
-          <FaBroadcastTower aria-hidden="true" />
-          <span>Live Match Telemetry</span>
+          <FaShieldAlt aria-hidden="true" />
+          <span>Polite Scraping & LRU Emoji Cache</span>
         </button>
 
         <button
           type="button"
           role="tab"
-          aria-selected={activeTab === 'logs'}
-          className={`widget-tab font-mono ${activeTab === 'logs' ? 'active' : ''}`}
-          onClick={() => setActiveTab('logs')}
+          aria-selected={activeTab === 'spoilers'}
+          className={`widget-tab font-mono ${activeTab === 'spoilers' ? 'active' : ''}`}
+          onClick={() => setActiveTab('spoilers')}
         >
-          <FaTerminal aria-hidden="true" />
-          <span>Backend Sync Logs</span>
+          <FaEyeSlash aria-hidden="true" />
+          <span>Spoiler Protection & Slash Engine</span>
         </button>
       </div>
 
-      {/* Tab Panels */}
+      {/* Viewport Content */}
       <div className="widget-viewport">
+        {/* TAB 1: Discord Match Embed & Emojis */}
         {activeTab === 'embed' && (
           <div className="embed-panel" role="tabpanel">
-            <div className="discord-message">
+            <div className="discord-msg-layout">
               <div className="bot-avatar font-mono">SS</div>
-              <div className="message-content">
-                <div className="message-header">
-                  <span className="bot-name font-mono">SpikeSync</span>
-                  <span className="bot-tag font-mono">BOT</span>
-                  <span className="post-time font-mono">Today at 18:00 UTC · In #esports-announcements</span>
+              <div className="discord-msg-body">
+                <div className="discord-meta font-mono">
+                  <span className="author-name">SpikeSync</span>
+                  <span className="app-badge">BOT</span>
+                  <span className="msg-time">
+                    {inPlaceEdited ? 'Edited in-place (15-min sync)' : 'Today at 18:00 UTC'} · in #esports-announcements
+                  </span>
                 </div>
 
-                {/* Discord Embed Container */}
-                <div className="discord-embed">
-                  <div className="embed-border" />
-                  <div className="embed-inner">
-                    <div className="embed-kicker font-mono">VCT MASTERS // UPPER BRACKET SEMIFINALS</div>
-                    <div className="embed-title">SENTINELS vs PAPER REX</div>
-                    <p className="embed-desc">
-                      Official broadcast synchronization active. Match starts in <strong>45 minutes</strong> on Main Stream A.
-                    </p>
+                {/* The Embed */}
+                <div className="discord-embed vct-champions">
+                  <div className="embed-color-bar champions-bar" />
+                  <div className="embed-body">
+                    <div className="embed-event-header font-mono">
+                      <span className="event-title">Valorant Champions 2026</span>
+                      <span className="event-stage">Upper Bracket Final</span>
+                    </div>
 
-                    <div className="embed-grid font-mono">
-                      <div className="grid-cell">
-                        <span className="cell-label">TOURNAMENT</span>
-                        <span className="cell-val">VCT Champions Tour 2026</span>
+                    <div className="embed-versus">
+                      <span className="team-emoji font-mono">[SEN]</span>
+                      <span className="team-text">Sentinels</span>
+                      <span className="vs-sep font-mono">vs</span>
+                      <span className="team-text">Paper Rex</span>
+                      <span className="team-emoji font-mono">[PRX]</span>
+                    </div>
+
+                    <div className="embed-fields font-mono">
+                      <div className="embed-field">
+                        <span className="field-name">MATCH TIME</span>
+                        <span className="field-val">&lt;t:1740000000:F&gt; (Local to viewer)</span>
                       </div>
-                      <div className="grid-cell">
-                        <span className="cell-label">FORMAT</span>
-                        <span className="cell-val">Best of 3 (LAN)</span>
+                      <div className="embed-field">
+                        <span className="field-name">STARTS</span>
+                        <span className="field-val highlight">&lt;t:1740000000:R&gt; (in 45 minutes)</span>
                       </div>
-                      <div className="grid-cell">
-                        <span className="cell-label">SCHEDULED TIME</span>
-                        <span className="cell-val">18:00 UTC (Synced)</span>
+                      <div className="embed-field">
+                        <span className="field-name">FORMAT</span>
+                        <span className="field-val">Best of 3 (BO3)</span>
                       </div>
-                      <div className="grid-cell">
-                        <span className="cell-label">BROADCAST AUDIENCE</span>
-                        <span className="cell-val highlight">2,340,000+ members</span>
+                      <div className="embed-field">
+                        <span className="field-name">VLR SOURCE</span>
+                        <span className="field-val">vlr.gg/12345/sen-vs-prx</span>
                       </div>
                     </div>
 
                     <div className="embed-footer font-mono">
-                      <span>Telemetry source: Riot Esports API & Scraper Feed</span>
+                      <span>Synchronized via MatchService · In-place editable</span>
                       <span>·</span>
-                      <span>SQLite cached (0.3ms)</span>
+                      <span>Event logo parsed via Cheerio</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Interactive Simulation Button */}
-                <div className="interactive-bar">
+                {/* Team Reactions */}
+                <div className="discord-reactions font-mono">
+                  <div className="reaction-pill active-react">
+                    <span className="react-icon">[SEN]</span>
+                    <span className="react-count">1</span>
+                  </div>
+                  <div className="reaction-pill active-react">
+                    <span className="react-icon">[PRX]</span>
+                    <span className="react-count">1</span>
+                  </div>
+                  <span className="react-caption">
+                    (Auto-reacted with synced Discord Application Emojis)
+                  </span>
+                </div>
+
+                {/* Embed Action simulation */}
+                <div className="embed-sim-actions">
                   <button
                     type="button"
-                    className="simulate-btn font-mono"
-                    onClick={handleSimulateAlert}
+                    className="sim-btn font-mono"
+                    onClick={() => setInPlaceEdited(!inPlaceEdited)}
                   >
-                    <FaBolt aria-hidden="true" />
-                    <span>{isAlertSent ? "Broadcast Dispatched to 2.3M Users!" : "Simulate Live Schedule Dispatch"}</span>
+                    <FaSyncAlt aria-hidden="true" />
+                    <span>{inPlaceEdited ? "Reset Embed" : "Simulate 15-Minute In-Place Edit"}</span>
                   </button>
-                  {isAlertSent && (
-                    <span className="dispatch-toast font-mono">
-                      ✓ Rate-limit safe: 49/50 remaining · 0 dropped packets
-                    </span>
-                  )}
+                  <span className="sim-hint font-mono">
+                    {inPlaceEdited
+                      ? "Embed updated in-place without reposting or channel spam!"
+                      : "Preserves chat history by editing existing message IDs."}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        {activeTab === 'live' && (
-          <div className="live-panel" role="tabpanel">
-            <div className="live-status-header">
-              <div className="matchup-tag font-mono">VCT MASTERS // DECIDER MAP 3</div>
-              <div className="live-badge font-mono">
-                <span className="pulse-red" aria-hidden="true" />
-                LIVE TELEMETRY
+        {/* TAB 2: Polite Scraping Pipeline & LRU Emoji Cache */}
+        {activeTab === 'pipeline' && (
+          <div className="pipeline-panel font-mono" role="tabpanel">
+            <div className="pipeline-grid">
+              <div className="pipeline-card">
+                <div className="card-kicker">POLITE VLR.GG SCRAPING PIPELINE</div>
+                <div className="pipeline-steps">
+                  <div className="step-item">
+                    <span className="step-num">01</span>
+                    <div className="step-content">
+                      <strong>Strict Serial Queue (p-queue):</strong> Concurrency capped at <code>1</code>. Never opens simultaneous connections to VLR.gg.
+                    </div>
+                  </div>
+                  <div className="step-item">
+                    <span className="step-num">02</span>
+                    <div className="step-content">
+                      <strong>1,500ms Sliding Window:</strong> Enforces minimum 1.5s interval between consecutive request starts (&lt; 40 req/min worst-case).
+                    </div>
+                  </div>
+                  <div className="step-item">
+                    <span className="step-num">03</span>
+                    <div className="step-content">
+                      <strong>Countdown Pre-Filter:</strong> Evaluates list-page countdown (e.g. <code>"2h 30m"</code>). Matches outside query window are skipped before requesting detail pages.
+                    </div>
+                  </div>
+                  <div className="step-item">
+                    <span className="step-num">04</span>
+                    <div className="step-content">
+                      <strong>Instant 403 / 429 Abort:</strong> Never retries rate limits or forbidden responses. Halts batch immediately to protect IP reputation.
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div className="match-scoreboard">
-              <div className="team-box">
-                <span className="team-code font-mono">SEN</span>
-                <span className="team-name">Sentinels</span>
-                <span className="map-score font-mono">1</span>
+              <div className="pipeline-card">
+                <div className="card-kicker">DYNAMIC APPLICATION EMOJI LRU CACHE</div>
+                <div className="pipeline-steps">
+                  <div className="step-item">
+                    <span className="step-num">01</span>
+                    <div className="step-content">
+                      <strong>Automatic Logo Sync:</strong> Downloads team logo from VLR.gg and uploads as a global Discord Application Emoji named <code>vct_&lt;vlrTeamId&gt;</code>.
+                    </div>
+                  </div>
+                  <div className="step-item">
+                    <span className="step-num">02</span>
+                    <div className="step-content">
+                      <strong>50-Emoji LRU Eviction:</strong> Caps at Discord's 50 application emoji limit. Evicts least-recently-used emoji based on <code>lastUsedAt</code> in SQLite.
+                    </div>
+                  </div>
+                  <div className="step-item">
+                    <span className="step-num">03</span>
+                    <div className="step-content">
+                      <strong>DB Wipe State Recovery:</strong> Catches <code>APPLICATION_EMOJI_NAME_ALREADY_TAKEN</code> on startup if DB is wiped, silently restoring cache without crashing.
+                    </div>
+                  </div>
+                  <div className="step-item">
+                    <span className="step-num">04</span>
+                    <div className="step-content">
+                      <strong>Incremental Results Ingestion:</strong> Ingests up to 50 results from <code>/matches/results</code>, skipping network requests for matches already completed in SQLite.
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="vs-divider font-mono">VS</div>
-              <div className="team-box">
-                <span className="team-code font-mono">PRX</span>
-                <span className="team-name">Paper Rex</span>
-                <span className="map-score font-mono">1</span>
-              </div>
-            </div>
-
-            <div className="map-breakdown font-mono">
-              <div className="map-card completed">
-                <span className="map-name">MAP 1: BIND</span>
-                <span className="map-result">13 - 11 (SEN)</span>
-              </div>
-              <div className="map-card completed">
-                <span className="map-name">MAP 2: ASCENT</span>
-                <span className="map-result">9 - 13 (PRX)</span>
-              </div>
-              <div className="map-card active-map">
-                <span className="map-name">MAP 3: HAVEN</span>
-                <span className="map-result live-score">8 - 7 (Round 16 Live)</span>
-              </div>
-            </div>
-
-            <div className="telemetry-meta font-mono">
-              <span>SYNC RATE: 15s POLLING + WEBSOCKET FAILOVER</span>
-              <span>PARSED WITH ZOD</span>
-              <span>ZERO GATEWAY VIOLATIONS</span>
             </div>
           </div>
         )}
 
-        {activeTab === 'logs' && (
-          <div className="logs-panel font-mono" role="tabpanel">
-            <div className="log-line">
-              <span className="log-time">[05:14:02.110]</span>
-              <span className="log-tag tag-ingest">[INGEST]</span>
-              <span className="log-msg">Polled Riot VCT tournament schedule feed → 200 OK (214ms)</span>
+        {/* TAB 3: Spoiler Protection & Slash Engine */}
+        {activeTab === 'spoilers' && (
+          <div className="spoilers-panel font-mono" role="tabpanel">
+            <div className="command-header">
+              <span className="cmd-prompt">/schedule last team:Sentinels</span>
+              <span className="cmd-meta">100% SQLite Read · 0 VLR HTTP Calls · &lt; 15ms Response</span>
             </div>
-            <div className="log-line">
-              <span className="log-time">[05:14:02.112]</span>
-              <span className="log-tag tag-zod">[VALIDATE]</span>
-              <span className="log-msg">Zod schema validation passed (14 bracket nodes, 0 schema errors, 0.28ms)</span>
-            </div>
-            <div className="log-line">
-              <span className="log-time">[05:14:02.115]</span>
-              <span className="log-tag tag-sqlite">[PERSIST]</span>
-              <span className="log-msg">SQLite upsert via Drizzle ORM: 8 matches updated (0.61ms latency)</span>
-            </div>
-            <div className="log-line">
-              <span className="log-time">[05:14:02.118]</span>
-              <span className="log-tag tag-cache">[CACHE]</span>
-              <span className="log-msg">In-memory TTL cache refreshed (key: 'vct_semis_bracket', ttl: 120s)</span>
-            </div>
-            <div className="log-line">
-              <span className="log-time">[05:14:02.121]</span>
-              <span className="log-tag tag-rate">[BUCKET]</span>
-              <span className="log-msg">Token bucket consumption: 1 token used · 49/50 tokens available</span>
-            </div>
-            <div className="log-line highlight-log">
-              <span className="log-time">[05:14:02.124]</span>
-              <span className="log-tag tag-dispatch">[DISPATCH]</span>
-              <span className="log-msg">Broadcast payload delivered to official VALORANT Discord (#esports, 2.3M reach)</span>
+
+            <div className="spoiler-card">
+              <div className="spoiler-title">COMPLETED MATCH // VCT MASTERS</div>
+              <div className="spoiler-series">
+                <span>Sentinels</span>
+                <span className={`spoiler-block ${revealedSpoilers ? 'revealed' : ''}`}>
+                  {revealedSpoilers ? "[2]" : "||[2]||"}
+                </span>
+                <span>vs</span>
+                <span>Paper Rex</span>
+                <span className={`spoiler-block ${revealedSpoilers ? 'revealed' : ''}`}>
+                  {revealedSpoilers ? "[0]" : "||[0]||"}
+                </span>
+              </div>
+
+              <div className="maps-spoiler-list">
+                <div className="map-spoiler-row">
+                  <span className="map-tag">MAP 1</span>
+                  <span className={`spoiler-block ${revealedSpoilers ? 'revealed' : ''}`}>
+                    {revealedSpoilers ? "Haven 13 - 6 (SEN)" : "|| Haven 13 - 6 ||"}
+                  </span>
+                </div>
+                <div className="map-spoiler-row">
+                  <span className="map-tag">MAP 2</span>
+                  <span className={`spoiler-block ${revealedSpoilers ? 'revealed' : ''}`}>
+                    {revealedSpoilers ? "Ascent 13 - 10 (SEN)" : "|| Ascent 13 - 10 ||"}
+                  </span>
+                </div>
+                <div className="map-spoiler-row padding-row">
+                  <span className="map-tag">MAP 3 (UNPLAYED DECIDER PADDING)</span>
+                  <span className={`spoiler-block ${revealedSpoilers ? 'revealed' : ''}`}>
+                    {revealedSpoilers ? "Abyss 0 - 0 (Unplayed)" : "|| Abyss 0 - 0 ||"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="spoiler-explanation">
+                <strong>Anti-Spoiler Architecture:</strong> Even when a BO3 ends in a 2-0 sweep, Map 3 is padded with <code>|| Abyss 0 - 0 ||</code> using the scheduled decider map name. Viewers cannot guess the series length or outcome before intentionally clicking the spoiler tag.
+              </div>
+
+              <button
+                type="button"
+                className="toggle-spoiler-btn"
+                onClick={() => setRevealedSpoilers(!revealedSpoilers)}
+              >
+                <FaBolt aria-hidden="true" />
+                <span>{revealedSpoilers ? "Hide Discord Spoilers" : "Click to Reveal Discord Spoilers"}</span>
+              </button>
             </div>
           </div>
         )}
