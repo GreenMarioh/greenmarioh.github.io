@@ -1,6 +1,7 @@
 import React from 'react';
 import { featuredProjects } from '../../content/content';
 import { FaGithub, FaCheckCircle, FaLock, FaExternalLinkAlt } from 'react-icons/fa';
+import SpikeSyncWidget from './SpikeSyncWidget';
 import './FeaturedWork.css';
 
 const FeaturedWork = () => {
@@ -78,6 +79,8 @@ const FeaturedWork = () => {
                   </div>
                 ))}
               </div>
+
+              {project.id === 'spikesync' && <SpikeSyncWidget />}
 
               <div className="project-stack">
                 <span className="stack-label font-mono">TECHNOLOGIES:</span>
