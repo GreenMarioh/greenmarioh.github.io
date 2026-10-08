@@ -9,7 +9,7 @@ export const personalInfo = {
   githubHandle: "GreenMarioh",
   headline: "Software Engineer & Algorithmic Problem Solver",
   subHeadline: "Building systems, backend infrastructure, and intelligent software.",
-  bio: "Computer Science undergraduate at KIIT Bhubaneswar (Class of 2027) with a strong competitive programming foundation across 600+ solved problems (Codeforces Pupil, LeetCode 1656). Applying algorithmic rigor to native systems programming in C++, scalable backend architectures in TypeScript/Node.js, and applied machine learning pipelines.",
+  bio: "Computer Science undergraduate at KIIT Bhubaneswar (Class of 2027) with a strong competitive programming foundation across 1000+ solved problems (Codeforces Pupil, LeetCode 1656). Applying algorithmic rigor to native systems programming in C++, scalable backend architectures in TypeScript/Node.js, and applied machine learning pipelines.",
   telemetryBadges: [
     { label: "PROBLEM SOLVING", val: "1000+ Solved (LeetCode 675+)" },
     { label: "CONTEST RATING", val: "Codeforces Pupil (1366 Max) · CodeChef 1519" },
