@@ -11,7 +11,7 @@ export const personalInfo = {
   subHeadline: "Building systems, backend infrastructure, and intelligent software.",
   bio: "Computer Science undergraduate at KIIT Bhubaneswar (Class of 2027) with a strong competitive programming foundation across 600+ solved problems (Codeforces Pupil, LeetCode 1656). Applying algorithmic rigor to native systems programming in C++, scalable backend architectures in TypeScript/Node.js, and applied machine learning pipelines.",
   telemetryBadges: [
-    { label: "PROBLEM SOLVING", val: "600+ Solved (LeetCode 1656)" },
+    { label: "PROBLEM SOLVING", val: "1000+ Solved (LeetCode 675+)" },
     { label: "CONTEST RATING", val: "Codeforces Pupil (1366 Max) · CodeChef 1519" },
     { label: "EDUCATION", val: "KIIT Bhubaneswar (Class of 2027)" },
     { label: "UPCOMING", val: "Infosys DSE (HackWithInfy Selection)" },
@@ -31,11 +31,11 @@ export const featuredProjects = [
     kicker: "01 // SIGNATURE BACKEND & DISCORD INFRASTRUCTURE",
     name: "SpikeSync",
     tagline: "Autonomous VLR.gg Esports Sync Engine & Discord Bot",
-    scale: "Deploying to Official VALORANT Discord (2.3M+ Members)",
+    scale: "Deploying to Official VALORANT Discord (2.7M+ Members)",
     description:
       "A production TypeScript/Node.js Discord bot and scraping engine built to automate Valorant esports schedules and match telemetry from VLR.gg for competitive communities, including deployment to the official VALORANT Discord server (2.3M+ members). Features polite serialized scraping, dynamic Discord Application Emoji LRU caching, in-place embed updating, spoiler-protected scorelines, and zero-network SQLite-backed slash commands.",
     highlights: [
-      "Targeted Deployment: Built to serve as the primary esports schedule distribution bot for the official VALORANT Discord (2.3M+ users).",
+      "Targeted Deployment: Built to serve as the primary esports schedule distribution bot for the official VALORANT Discord (2.7M+ users).",
       "Polite Serialized Scraping: Enforces concurrency 1 and a 1.5s sliding window via p-queue with exponential jittered backoff, 0 requests when idle, and instant abort on 403/429.",
       "Dynamic Application Emoji LRU Cache: Downloads team logos from VLR and syncs up to 50 global Discord Application Emojis with automatic LRU eviction, state recovery, and automated two-team reaction placement.",
       "In-Place Embed Updates & Channel Pruning: Updates active match announcements in-place on 15-min sync intervals; auto-recovers from deleted messages (10008) and cleans up deleted channels (10003).",
