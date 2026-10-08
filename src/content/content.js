@@ -141,7 +141,7 @@ export const experienceData = {
     {
       company: "Paragon",
       role: "Assistant Developer",
-      period: "Production",
+      period: "Nov-Dec 2025",
       badge: "Backend Engineering",
       details: [
         "Engineered backend infrastructure and premium features for large gaming communities (VALORANT and VALORANT LFG Discords).",
@@ -154,7 +154,7 @@ export const experienceData = {
     {
       company: "Infosys",
       role: "Digital Specialist Engineer",
-      period: "Upcoming Placement",
+      period: "April 2027 (Tentative)",
       badge: "Competitive Selection",
       details: [
         "Offered Digital Specialist Engineer (DSE) role after advancing through competitive rounds of the HackWithInfy coding competition.",
