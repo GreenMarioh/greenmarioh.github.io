@@ -449,7 +449,7 @@ export const socialLinks = [
   { name: "GitHub", url: "https://github.com/GreenMarioh", display: "github.com/GreenMarioh" },
   { name: "LinkedIn", url: "https://linkedin.com/in/mohnish-k", display: "linkedin.com/in/mohnish-k" },
   { name: "X", url: "https://x.com/GreenMarioh", display: "@GreenMarioh" },
-  { name: "Discord", value: "green.mario", display: "green.mario" },
+  { name: "Discord", value: "greenmario", display: "greenmario" },
   { name: "Steam", url: "https://steamcommunity.com/id/green_mario/", display: "green_mario" },
   { name: "Monkeytype", url: "https://monkeytype.com/profile/greenmarioh", display: "greenmarioh" },
 ];

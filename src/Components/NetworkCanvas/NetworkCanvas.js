@@ -1,362 +1,265 @@
 import React, { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
 import './NetworkCanvas.css';
 
+/**
+ * NetworkCanvas — lightweight vanilla WebGL/Canvas2D live network background.
+ * Design language: dark terminal grid + sparse glowing signal traces.
+ * No heavy library. Strict perf budget: pauses on tab blur & scroll out.
+ */
 const NetworkCanvas = () => {
-  const containerRef = useRef(null);
-  const [hasWebGL, setHasWebGL] = useState(true);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const canvasRef = useRef(null);
+  const [hasSupport, setHasSupport] = useState(true);
 
   useEffect(() => {
-    // Check reduced motion
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (motionQuery.matches) {
-      setReducedMotion(true);
+    // Respect prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setHasSupport(false);
       return;
     }
 
-    // Check WebGL availability
-    const checkWebGL = () => {
-      try {
-        const testCanvas = document.createElement('canvas');
-        return !!(
-          window.WebGLRenderingContext &&
-          (testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl'))
-        );
-      } catch (e) {
-        return false;
-      }
-    };
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    if (!checkWebGL()) {
-      setHasWebGL(false);
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      setHasSupport(false);
       return;
     }
 
-    const container = containerRef.current;
-    if (!container) return;
-
-    let width = container.clientWidth || window.innerWidth;
-    let height = container.clientHeight || 500;
-
-    // 1. Scene, Camera, Renderer
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 1000);
-    camera.position.z = 45;
-
-    let renderer;
-    try {
-      renderer = new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true,
-        powerPreference: 'high-performance',
-      });
-      renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5)); // Capped at 1.5 per budget
-      container.appendChild(renderer.domElement);
-    } catch (err) {
-      setHasWebGL(false);
-      return;
-    }
-
-    // 2. Network Graph Nodes Setup
-    const NODE_COUNT = 48;
-    const CONNECT_DIST = 13.5;
-    const nodes = [];
-
-    for (let i = 0; i < NODE_COUNT; i++) {
-      nodes.push({
-        x: (Math.random() - 0.5) * 55,
-        y: (Math.random() - 0.5) * 36,
-        z: (Math.random() - 0.5) * 20,
-        vx: (Math.random() - 0.5) * 0.02,
-        vy: (Math.random() - 0.5) * 0.02,
-        vz: (Math.random() - 0.5) * 0.015,
-      });
-    }
-
-    // Node Points Material & Geometry
-    const nodeGeometry = new THREE.BufferGeometry();
-    const nodePositions = new Float32Array(NODE_COUNT * 3);
-    for (let i = 0; i < NODE_COUNT; i++) {
-      nodePositions[i * 3] = nodes[i].x;
-      nodePositions[i * 3 + 1] = nodes[i].y;
-      nodePositions[i * 3 + 2] = nodes[i].z;
-    }
-    nodeGeometry.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
-
-    // Circular soft-glow node sprite texture
-    const createNodeTexture = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 32;
-      canvas.height = 32;
-      const ctx = canvas.getContext('2d');
-      const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
-      gradient.addColorStop(0, 'rgba(0, 255, 127, 1)');
-      gradient.addColorStop(0.35, 'rgba(0, 255, 127, 0.7)');
-      gradient.addColorStop(1, 'rgba(0, 255, 127, 0)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, 32, 32);
-      return new THREE.CanvasTexture(canvas);
-    };
-
-    const nodeTexture = createNodeTexture();
-    const nodeMaterial = new THREE.PointsMaterial({
-      color: 0x00ff7f,
-      size: 2.2,
-      map: nodeTexture,
-      transparent: true,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-    const pointsMesh = new THREE.Points(nodeGeometry, nodeMaterial);
-    scene.add(pointsMesh);
-
-    // Dynamic Line Segments (Edges)
-    const MAX_LINES = 180;
-    const linePositions = new Float32Array(MAX_LINES * 2 * 3);
-    const lineGeometry = new THREE.BufferGeometry();
-    lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
-
-    const lineMaterial = new THREE.LineBasicMaterial({
-      color: 0x00ff7f,
-      transparent: true,
-      opacity: 0.22,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-    const lineMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
-    scene.add(lineMesh);
-
-    // Traveling Data Packets (Telemetry pulses)
-    const PACKET_COUNT = 6;
-    const packets = [];
-    for (let i = 0; i < PACKET_COUNT; i++) {
-      packets.push({
-        source: Math.floor(Math.random() * NODE_COUNT),
-        target: Math.floor(Math.random() * NODE_COUNT),
-        progress: Math.random(),
-        speed: 0.006 + Math.random() * 0.008,
-      });
-    }
-
-    const packetGeometry = new THREE.BufferGeometry();
-    const packetPositions = new Float32Array(PACKET_COUNT * 3);
-    packetGeometry.setAttribute('position', new THREE.BufferAttribute(packetPositions, 3));
-
-    const packetMaterial = new THREE.PointsMaterial({
-      color: 0xffffff,
-      size: 3.2,
-      map: nodeTexture,
-      transparent: true,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-    const packetMesh = new THREE.Points(packetGeometry, packetMaterial);
-    scene.add(packetMesh);
-
-    // Mouse Interaction
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetCameraX = 0;
-    let targetCameraY = 0;
-
-    const handleMouseMove = (e) => {
-      const rect = container.getBoundingClientRect();
-      const clientX = e.clientX - rect.left;
-      const clientY = e.clientY - rect.top;
-      mouseX = (clientX / width) * 2 - 1;
-      mouseY = -(clientY / height) * 2 + 1;
-      targetCameraX = mouseX * 5;
-      targetCameraY = mouseY * 3.5;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-
-    // 3. Render Loop & Throttling
+    let w, h;
+    let animId = null;
     let isVisible = true;
-    let isTabActive = true;
-    let animationFrameId = null;
+    let isActive = true;
 
-    const updateGraph = () => {
-      // Gentle node drift within bounds
-      const posArray = pointsMesh.geometry.attributes.position.array;
-      for (let i = 0; i < NODE_COUNT; i++) {
-        const node = nodes[i];
-        node.x += node.vx;
-        node.y += node.vy;
-        node.z += node.vz;
+    // ─── Resize ────────────────────────────────────────────────────────────
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      w = canvas.offsetWidth;
+      h = canvas.offsetHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      buildGrid();
+    };
 
-        // Bounce back within bounds
-        if (node.x < -28 || node.x > 28) node.vx *= -1;
-        if (node.y < -18 || node.y > 18) node.vy *= -1;
-        if (node.z < -10 || node.z > 10) node.vz *= -1;
+    // ─── Grid dots (circuit-board intersection points) ─────────────────────
+    const CELL = 52; // grid spacing in logical px
+    let gridDots = [];
 
-        posArray[i * 3] = node.x;
-        posArray[i * 3 + 1] = node.y;
-        posArray[i * 3 + 2] = node.z;
-      }
-      pointsMesh.geometry.attributes.position.needsUpdate = true;
-
-      // Connect neighbor nodes
-      const linePosArray = lineMesh.geometry.attributes.position.array;
-      let lineVertexIdx = 0;
-      let activeConnections = [];
-
-      for (let i = 0; i < NODE_COUNT; i++) {
-        for (let j = i + 1; j < NODE_COUNT; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const dz = nodes[i].z - nodes[j].z;
-          const distSq = dx * dx + dy * dy + dz * dz;
-
-          if (distSq < CONNECT_DIST * CONNECT_DIST && lineVertexIdx < MAX_LINES * 6) {
-            linePosArray[lineVertexIdx++] = nodes[i].x;
-            linePosArray[lineVertexIdx++] = nodes[i].y;
-            linePosArray[lineVertexIdx++] = nodes[i].z;
-            linePosArray[lineVertexIdx++] = nodes[j].x;
-            linePosArray[lineVertexIdx++] = nodes[j].y;
-            linePosArray[lineVertexIdx++] = nodes[j].z;
-
-            activeConnections.push({ a: i, b: j });
-          }
+    const buildGrid = () => {
+      gridDots = [];
+      const cols = Math.ceil(w / CELL) + 2;
+      const rows = Math.ceil(h / CELL) + 2;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          gridDots.push({ x: c * CELL, y: r * CELL });
         }
       }
+    };
 
-      // Clear remaining line coordinates
-      for (let k = lineVertexIdx; k < MAX_LINES * 6; k++) {
-        linePosArray[k] = 0;
+    // ─── Signal traces (orthogonal paths that travel along grid lines) ─────
+    const TRACE_COUNT = 14;
+    let traces = [];
+
+    const pickGridPoint = () => {
+      // Snap to nearest grid node
+      const col = Math.floor(Math.random() * Math.ceil(w / CELL));
+      const row = Math.floor(Math.random() * Math.ceil(h / CELL));
+      return { x: col * CELL, y: row * CELL };
+    };
+
+    const makeTrace = () => {
+      const start = pickGridPoint();
+      // Orthogonal segments: pick a direction (H or V), travel several cells
+      const segments = [];
+      let cx = start.x;
+      let cy = start.y;
+      const segCount = 2 + Math.floor(Math.random() * 4);
+
+      for (let i = 0; i < segCount; i++) {
+        const horizontal = Math.random() > 0.5;
+        const cells = (1 + Math.floor(Math.random() * 5)) * CELL;
+        const dir = Math.random() > 0.5 ? 1 : -1;
+        const nx = horizontal ? cx + cells * dir : cx;
+        const ny = horizontal ? cy : cy + cells * dir;
+        segments.push({ x1: cx, y1: cy, x2: nx, y2: ny });
+        cx = nx;
+        cy = ny;
       }
-      lineMesh.geometry.attributes.position.needsUpdate = true;
 
-      // Update traveling packet pulses along active connections
-      if (activeConnections.length > 0) {
-        const packetPosArray = packetMesh.geometry.attributes.position.array;
-        for (let p = 0; p < PACKET_COUNT; p++) {
-          const packet = packets[p];
-          packet.progress += packet.speed;
+      // Total length for progress tracking
+      const totalLen = segments.reduce((sum, s) => {
+        return sum + Math.abs(s.x2 - s.x1) + Math.abs(s.y2 - s.y1);
+      }, 0);
 
-          if (packet.progress >= 1) {
-            packet.progress = 0;
-            const randomConn = activeConnections[Math.floor(Math.random() * activeConnections.length)];
-            packet.source = randomConn.a;
-            packet.target = randomConn.b;
-          }
+      return {
+        segments,
+        totalLen,
+        progress: Math.random(), // 0 → 1
+        speed: 0.12 + Math.random() * 0.22, // logical px per frame
+        alpha: 0.18 + Math.random() * 0.28,
+        width: Math.random() > 0.7 ? 1.5 : 1,
+      };
+    };
 
-          const nodeA = nodes[packet.source] || nodes[0];
-          const nodeB = nodes[packet.target] || nodes[1];
+    const initTraces = () => {
+      traces = Array.from({ length: TRACE_COUNT }, makeTrace);
+    };
 
-          packetPosArray[p * 3] = nodeA.x + (nodeB.x - nodeA.x) * packet.progress;
-          packetPosArray[p * 3 + 1] = nodeA.y + (nodeB.y - nodeA.y) * packet.progress;
-          packetPosArray[p * 3 + 2] = nodeA.z + (nodeB.z - nodeA.z) * packet.progress;
+    // ─── Pulse heads (bright dot at the front of each active trace) ────────
+    const getHeadPos = (trace) => {
+      const dist = trace.progress * trace.totalLen;
+      let acc = 0;
+      for (const seg of trace.segments) {
+        const len = Math.abs(seg.x2 - seg.x1) + Math.abs(seg.y2 - seg.y1);
+        if (acc + len >= dist) {
+          const t = (dist - acc) / len;
+          return {
+            x: seg.x1 + (seg.x2 - seg.x1) * t,
+            y: seg.y1 + (seg.y2 - seg.y1) * t,
+          };
         }
-        packetMesh.geometry.attributes.position.needsUpdate = true;
+        acc += len;
+      }
+      // Past end
+      const last = trace.segments[trace.segments.length - 1];
+      return { x: last.x2, y: last.y2 };
+    };
+
+    // ─── Draw ──────────────────────────────────────────────────────────────
+    const GREEN = '#00ff7f';
+
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+
+      // 1. Faint grid dots at every intersection
+      ctx.fillStyle = 'rgba(0, 255, 127, 0.1)';
+      for (const dot of gridDots) {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, 1, 0, Math.PI * 2);
+        ctx.fill();
       }
 
-      // Smooth camera interpolation
-      camera.position.x += (targetCameraX - camera.position.x) * 0.04;
-      camera.position.y += (targetCameraY - camera.position.y) * 0.04;
-      camera.lookAt(0, 0, 0);
-    };
+      // 2. Signal traces (drawn only up to current progress)
+      for (const trace of traces) {
+        const dist = trace.progress * trace.totalLen;
+        let acc = 0;
 
-    const animate = () => {
-      if (!isVisible || !isTabActive) {
-        animationFrameId = null;
-        return;
+        ctx.strokeStyle = `rgba(0, 255, 127, ${trace.alpha})`;
+        ctx.lineWidth = trace.width;
+        ctx.lineCap = 'square';
+
+        for (const seg of trace.segments) {
+          const segLen = Math.abs(seg.x2 - seg.x1) + Math.abs(seg.y2 - seg.y1);
+          const remaining = dist - acc;
+
+          if (remaining <= 0) break;
+
+          const t = Math.min(remaining / segLen, 1);
+          const ex = seg.x1 + (seg.x2 - seg.x1) * t;
+          const ey = seg.y1 + (seg.y2 - seg.y1) * t;
+
+          ctx.beginPath();
+          ctx.moveTo(seg.x1, seg.y1);
+          ctx.lineTo(ex, ey);
+          ctx.stroke();
+
+          acc += segLen;
+        }
+
+        // 3. Glowing pulse head at the front
+        const head = getHeadPos(trace);
+        const grd = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, 7);
+        grd.addColorStop(0, `rgba(0, 255, 127, ${trace.alpha * 2.5})`);
+        grd.addColorStop(1, 'rgba(0, 255, 127, 0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, 7, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Crisp dot core
+        ctx.fillStyle = GREEN;
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, 1.8, 0, Math.PI * 2);
+        ctx.fill();
       }
-
-      updateGraph();
-      renderer.render(scene, camera);
-      animationFrameId = requestAnimationFrame(animate);
     };
 
-    // 4. Pause Rendering when Offscreen or Inactive
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          isVisible = entry.isIntersecting;
-          if (isVisible && isTabActive && !animationFrameId) {
-            animationFrameId = requestAnimationFrame(animate);
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(container);
-
-    const handleVisibilityChange = () => {
-      isTabActive = !document.hidden;
-      if (isTabActive && isVisible && !animationFrameId) {
-        animationFrameId = requestAnimationFrame(animate);
+    // ─── Update traces ─────────────────────────────────────────────────────
+    const update = () => {
+      for (let i = 0; i < traces.length; i++) {
+        traces[i].progress += traces[i].speed / traces[i].totalLen;
+        if (traces[i].progress >= 1) {
+          traces[i] = makeTrace(); // recycle with new random path
+        }
       }
     };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    // 5. Handle Resize
-    const handleResize = () => {
-      if (!container) return;
-      width = container.clientWidth || window.innerWidth;
-      height = container.clientHeight || 500;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
+    // ─── Loop ──────────────────────────────────────────────────────────────
+    const loop = () => {
+      if (!isVisible || !isActive) { animId = null; return; }
+      update();
+      draw();
+      animId = requestAnimationFrame(loop);
     };
-    window.addEventListener('resize', handleResize, { passive: true });
 
-    // Start initial loop
-    animationFrameId = requestAnimationFrame(animate);
+    // ─── Visibility pause ──────────────────────────────────────────────────
+    const obs = new IntersectionObserver(entries => {
+      isVisible = entries[0].isIntersecting;
+      if (isVisible && isActive && !animId) animId = requestAnimationFrame(loop);
+    }, { threshold: 0.05 });
+    obs.observe(canvas);
 
-    // 6. Complete Cleanup on Unmount
+    const onVisChange = () => {
+      isActive = !document.hidden;
+      if (isActive && isVisible && !animId) animId = requestAnimationFrame(loop);
+    };
+    document.addEventListener('visibilitychange', onVisChange);
+
+    const onResize = () => { resize(); };
+    window.addEventListener('resize', onResize, { passive: true });
+
+    // ─── Init ──────────────────────────────────────────────────────────────
+    resize();
+    initTraces();
+    animId = requestAnimationFrame(loop);
+
     return () => {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      observer.disconnect();
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', handleResize);
-
-      // Dispose three.js resources
-      nodeGeometry.dispose();
-      nodeMaterial.dispose();
-      nodeTexture.dispose();
-      lineGeometry.dispose();
-      lineMaterial.dispose();
-      packetGeometry.dispose();
-      packetMaterial.dispose();
-
-      if (renderer) {
-        renderer.dispose();
-        if (renderer.domElement && container.contains(renderer.domElement)) {
-          container.removeChild(renderer.domElement);
-        }
-      }
+      if (animId) cancelAnimationFrame(animId);
+      obs.disconnect();
+      document.removeEventListener('visibilitychange', onVisChange);
+      window.removeEventListener('resize', onResize);
     };
   }, []);
 
-  // 2D SVG / CSS Static Fallback for Reduced Motion or WebGL failure
-  if (reducedMotion || !hasWebGL) {
+  if (!hasSupport) {
+    // Static 2D fallback for reduced-motion or unsupported browsers
     return (
       <div className="network-fallback" aria-hidden="true">
-        <svg className="fallback-svg" viewBox="0 0 800 400" preserveAspectRatio="none">
-          <line x1="100" y1="80" x2="350" y2="150" stroke="rgba(0, 255, 127, 0.2)" strokeWidth="1" />
-          <line x1="350" y1="150" x2="600" y2="90" stroke="rgba(0, 255, 127, 0.2)" strokeWidth="1" />
-          <line x1="350" y1="150" x2="450" y2="300" stroke="rgba(0, 255, 127, 0.2)" strokeWidth="1" />
-          <line x1="200" y1="320" x2="450" y2="300" stroke="rgba(0, 255, 127, 0.2)" strokeWidth="1" />
-          <line x1="450" y1="300" x2="720" y2="280" stroke="rgba(0, 255, 127, 0.2)" strokeWidth="1" />
-          <circle cx="100" cy="80" r="3" fill="#00ff7f" opacity="0.6" />
-          <circle cx="350" cy="150" r="4" fill="#00ff7f" opacity="0.8" />
-          <circle cx="600" cy="90" r="3" fill="#00ff7f" opacity="0.6" />
-          <circle cx="200" cy="320" r="3" fill="#00ff7f" opacity="0.5" />
-          <circle cx="450" cy="300" r="4" fill="#00ff7f" opacity="0.8" />
-          <circle cx="720" cy="280" r="3" fill="#00ff7f" opacity="0.6" />
+        <svg className="fallback-svg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid slice">
+          {/* Grid dots */}
+          {[52,104,156,208,260,312,364,416,468,520,572,624,676,728,780,832].map(x =>
+            [52,104,156,208,260,312,364,416,468].map(y => (
+              <circle key={`${x}-${y}`} cx={x} cy={y} r="1" fill="rgba(0,255,127,0.12)" />
+            ))
+          )}
+          {/* Static trace lines */}
+          <polyline points="52,104 364,104 364,260 572,260" stroke="rgba(0,255,127,0.2)" strokeWidth="1" fill="none" />
+          <polyline points="208,52 208,312 468,312" stroke="rgba(0,255,127,0.15)" strokeWidth="1" fill="none" />
+          <polyline points="520,156 728,156 728,364 832,364" stroke="rgba(0,255,127,0.18)" strokeWidth="1" fill="none" />
+          {/* Pulse dots */}
+          <circle cx="364" cy="260" r="3" fill="rgba(0,255,127,0.7)" />
+          <circle cx="208" cy="312" r="3" fill="rgba(0,255,127,0.6)" />
+          <circle cx="728" cy="364" r="3" fill="rgba(0,255,127,0.7)" />
         </svg>
       </div>
     );
   }
 
   return (
-    <div
-      ref={containerRef}
-      className="network-canvas-container"
+    <canvas
+      ref={canvasRef}
+      className="network-canvas"
       aria-hidden="true"
     />
   );

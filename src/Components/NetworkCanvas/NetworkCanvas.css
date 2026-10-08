@@ -1,39 +1,49 @@
 /* src/Components/NetworkCanvas/NetworkCanvas.css */
-.network-canvas-container,
+
+/* Canvas occupies hero background absolutely, behind text */
+.network-canvas,
 .network-fallback {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  display: block;
   pointer-events: none;
   z-index: 0;
-  overflow: hidden;
-  opacity: 0.85;
 }
 
-.network-canvas-container canvas {
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-}
-
-/* Subtle radial vignette fade around the edges */
-.network-canvas-container::after,
+/* Fade edges so it blends cleanly into the section */
+.network-canvas::after,
 .network-fallback::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 45%,
-    var(--bg-primary) 100%
-  );
   pointer-events: none;
 }
 
-/* Static 2D SVG Fallback */
+/* Vignette: stronger fade on left edge (where text lives), subtle elsewhere */
+.network-canvas {
+  -webkit-mask-image:
+    radial-gradient(ellipse 80% 100% at 65% 50%,
+      black 30%,
+      transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 80% 100% at 65% 50%,
+      black 30%,
+      transparent 100%);
+  opacity: 0.75;
+}
+
 .fallback-svg {
   width: 100%;
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.35;
+  -webkit-mask-image:
+    radial-gradient(ellipse 80% 100% at 65% 50%,
+      black 30%,
+      transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 80% 100% at 65% 50%,
+      black 30%,
+      transparent 100%);
 }
