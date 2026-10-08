@@ -5,11 +5,14 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-container {
   max-width: var(--container-max-width);
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-badge {

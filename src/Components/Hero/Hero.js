@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { personalInfo } from '../../content/content';
 import { FaFilePdf, FaGithub, FaArrowDown, FaCode } from 'react-icons/fa';
 import './Hero.css';
 
+const NetworkCanvas = lazy(() => import('../NetworkCanvas/NetworkCanvas'));
+
 const Hero = () => {
   return (
     <section id="intro" className="hero-section" aria-labelledby="hero-title">
+      <Suspense fallback={<div className="network-fallback" aria-hidden="true" />}>
+        <NetworkCanvas />
+      </Suspense>
+
       <div className="hero-container">
         <div className="hero-badge">
           <FaCode className="badge-icon" aria-hidden="true" />
